@@ -63,7 +63,7 @@
 	<string>
 	<sstream>
 
-1585122801 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+1585125815 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
 	"MenuPrincipal.h"
 	<iostream>
 	"ReadArchive.h"
@@ -256,13 +256,16 @@
 	<limits>
 	<type_traits>
 
-1585122157 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
+1585110902 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
 	"DoubleCircularListDiccionario.h"
 	<iostream>
 	"NodeDiccionario.h"
+	"CreateFile.h"
+	<fstream>
 
-1585121358 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
+1585125397 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
 	"NodeDiccionario.h"
+	"CreateFile.h"
 	<iostream>
 
 1585122171 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodediccionario.h
@@ -277,5 +280,13 @@
 	<iostream>
 
 1585121085 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\coordenada.h
+	<iostream>
+
+1585125859 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\createfile.cpp
+	"CreateFile.h"
+	<iostream>
+	<fstream>
+
+1585125508 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\createfile.h
 	<iostream>
 

@@ -26,8 +26,8 @@ void MenuPrincipal::desplegarMenu(){
                 reader = new ReadArchive(diccionario_palabras);
                 reader->readJSON(file_string);
                 cout<< "Carga masiva realizada con exito" <<endl;
+                diccionario_palabras->createDOT("diccionario.dot");
             }
-
             break;
         case 2:
             break;

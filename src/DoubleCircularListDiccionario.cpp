@@ -1,6 +1,8 @@
 #include "DoubleCircularListDiccionario.h"
 #include <iostream>
 #include "NodeDiccionario.h"
+#include "CreateFile.h"
+#include <fstream>
 using namespace std;
 
 DoubleCircularListDiccionario::DoubleCircularListDiccionario()
@@ -36,3 +38,26 @@ void DoubleCircularListDiccionario::desplegarLista(){
         cout<<"La lista se encuentra vacia";
     }
 }
+
+void DoubleCircularListDiccionario::createDOT(std::string filename){
+    creator = new CreateFile();
+    std::string contenido;
+    ofstream fs(filename);
+    NodeDiccionario* aux = primero;
+    contenido += "digraph Diccionario {";
+    contenido += "node [ fontsize = 16 shape = record] ";
+    do{
+        std::string cont = "";
+        cont += " \" " + aux->word + "\" [ label = \" "+ aux->word + "\" shape = record ];";
+        cont +=  " \" " + aux->word + "\"" + " -> " +" \" " + aux->siguiente->word + "\"";
+        cont +=  " \" " + aux->word + "\"" + " -> " +" \" " + aux->anterior->word + "\"";
+        contenido.append(cont);
+        aux = aux->siguiente;
+    }while(aux!=primero);
+    contenido += "}";
+    fs << contenido;
+    fs.close();
+    creator->create(filename, "diccionario.png");
+
+}
+

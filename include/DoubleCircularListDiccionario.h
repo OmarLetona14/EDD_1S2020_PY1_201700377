@@ -1,6 +1,7 @@
 #ifndef DOUBLECIRCULARLISTDICCIONARIO_H
 #define DOUBLECIRCULARLISTDICCIONARIO_H
 #include "NodeDiccionario.h"
+#include "CreateFile.h"
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,8 @@ class DoubleCircularListDiccionario
         void desplegarLista();
         NodeDiccionario* ultimo;
         NodeDiccionario* primero;
-
+        void createDOT(std::string);
+        CreateFile *creator;
     protected:
 
     private:
