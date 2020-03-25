@@ -1,0 +1,281 @@
+# depslib dependency file v1.0
+1585122227 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\main.cpp
+	<iostream>
+	"MenuPrincipal.h"
+
+1585098396 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\laterallist.cpp
+	"LateralList.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\laterallist.h
+	"NodeLateral.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodelateral.h
+	"ListHorizontal.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\listhorizontal.h
+	<iostream>
+	"NodeMatrix.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodematrix.h
+	<string>
+	<cstddef>
+
+1585098396 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodelateral.cpp
+	"NodeLateral.h"
+
+1585098396 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodematrix.cpp
+	"NodeMatrix.h"
+
+1585098396 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\headerlist.cpp
+	"HeaderList.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\headerlist.h
+	"NodeHeader.h"
+
+1585098015 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodeheader.h
+	"ListVertical.h"
+	<cstddef>
+
+1585098438 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\listvertical.h
+	"NodeMatrix.h"
+	<iostream>
+	<string>
+
+1585098396 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+	"Matrix.h"
+
+1585098396 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\matrix.h
+	"LateralList.h"
+	"HeaderList.h"
+	<string>
+
+1585098015 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodeheader.cpp
+	"NodeHeader.h"
+
+1585099158 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\listhorizontal.cpp
+	"ListHorizontal.h"
+	<sstream>
+	<string>
+	<iostream>
+
+1585099158 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\listvertical.cpp
+	"ListVertical.h"
+	<string>
+	<sstream>
+
+1585122801 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+	"MenuPrincipal.h"
+	<iostream>
+	"ReadArchive.h"
+	"DoubleCircularListDiccionario.h"
+
+1585122157 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menuprincipal.h
+	"ReadArchive.h"
+	"DoubleCircularListDiccionario.h"
+
+1585122523 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\readarchive.cpp
+	"ReadArchive.h"
+	<string>
+	"json.hpp"
+	<fstream>
+	<typeinfo>
+	"DoubleCircularListDiccionario.h"
+
+1585121262 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\readarchive.h
+	<string>
+	"json.hpp"
+	<fstream>
+	<typeinfo>
+	"DoubleCircularListDiccionario.h"
+
+1583111522 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\json.hpp
+	<algorithm>
+	<cassert>
+	<ciso646>
+	<cstddef>
+	<functional>
+	<initializer_list>
+	<iosfwd>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<utility>
+	<algorithm>
+	<array>
+	<ciso646>
+	<forward_list>
+	<iterator>
+	<map>
+	<string>
+	<tuple>
+	<type_traits>
+	<unordered_map>
+	<utility>
+	<valarray>
+	<exception>
+	<stdexcept>
+	<string>
+	<cstddef>
+	<utility>
+	<stdint.h>
+	<stdint.h>
+	<cstdlib>
+	<ciso646>
+	<cstddef>
+	<type_traits>
+	<ciso646>
+	<limits>
+	<type_traits>
+	<utility>
+	<iterator>
+	<type_traits>
+	<cstdint>
+	<map>
+	<memory>
+	<string>
+	<vector>
+	<array>
+	<ciso646>
+	<cstddef>
+	<cstdint>
+	<string>
+	<algorithm>
+	<ciso646>
+	<iterator>
+	<string>
+	<tuple>
+	<type_traits>
+	<utility>
+	<valarray>
+	<vector>
+	<cstddef>
+	<iterator>
+	<string>
+	<tuple>
+	<algorithm>
+	<array>
+	<cassert>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<cstring>
+	<iterator>
+	<limits>
+	<string>
+	<utility>
+	<array>
+	<cassert>
+	<cstddef>
+	<cstdio>
+	<cstring>
+	<istream>
+	<iterator>
+	<memory>
+	<numeric>
+	<string>
+	<type_traits>
+	<utility>
+	<cassert>
+	<cstddef>
+	<string>
+	<utility>
+	<vector>
+	<cstdint>
+	<utility>
+	<string>
+	<array>
+	<clocale>
+	<cstddef>
+	<cstdio>
+	<cstdlib>
+	<initializer_list>
+	<string>
+	<utility>
+	<vector>
+	<cassert>
+	<cmath>
+	<cstdint>
+	<functional>
+	<string>
+	<utility>
+	<vector>
+	<cstddef>
+	<limits>
+	<ciso646>
+	<iterator>
+	<type_traits>
+	<cstddef>
+	<iterator>
+	<utility>
+	<algorithm>
+	<cassert>
+	<cctype>
+	<numeric>
+	<string>
+	<utility>
+	<vector>
+	<initializer_list>
+	<utility>
+	<algorithm>
+	<array>
+	<cstdint>
+	<cstring>
+	<limits>
+	<string>
+	<algorithm>
+	<cstddef>
+	<ios>
+	<iterator>
+	<memory>
+	<ostream>
+	<string>
+	<vector>
+	<algorithm>
+	<array>
+	<cassert>
+	<ciso646>
+	<clocale>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdio>
+	<limits>
+	<string>
+	<type_traits>
+	<utility>
+	<array>
+	<cassert>
+	<ciso646>
+	<cmath>
+	<cstdint>
+	<cstring>
+	<limits>
+	<type_traits>
+
+1585122157 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
+	"DoubleCircularListDiccionario.h"
+	<iostream>
+	"NodeDiccionario.h"
+
+1585121358 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
+	"NodeDiccionario.h"
+	<iostream>
+
+1585122171 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodediccionario.h
+	<iostream>
+
+1585119429 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodediccionario.cpp
+	"NodeDiccionario.h"
+	<iostream>
+
+1585121185 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\coordenada.cpp
+	"Coordenada.h"
+	<iostream>
+
+1585121085 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\coordenada.h
+	<iostream>
+
