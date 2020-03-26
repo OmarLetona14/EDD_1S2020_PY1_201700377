@@ -41,6 +41,7 @@
 		<Unit filename="include/Ficha.h" />
 		<Unit filename="include/GenerateRandom.h" />
 		<Unit filename="include/HeaderList.h" />
+		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/LateralList.h" />
 		<Unit filename="include/ListHorizontal.h" />
 		<Unit filename="include/ListVertical.h" />
@@ -52,7 +53,10 @@
 		<Unit filename="include/NodeHeader.h" />
 		<Unit filename="include/NodeLateral.h" />
 		<Unit filename="include/NodeMatrix.h" />
+		<Unit filename="include/NodeScore.h" />
 		<Unit filename="include/ReadArchive.h" />
+		<Unit filename="include/Score.h" />
+		<Unit filename="include/SimplyLinkedListScoreboard.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ColaFicha.cpp" />
 		<Unit filename="src/Coordenada.cpp" />
@@ -61,6 +65,7 @@
 		<Unit filename="src/Ficha.cpp" />
 		<Unit filename="src/GenerateRandom.cpp" />
 		<Unit filename="src/HeaderList.cpp" />
+		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/LateralList.cpp" />
 		<Unit filename="src/ListHorizontal.cpp" />
 		<Unit filename="src/ListVertical.cpp" />
@@ -72,7 +77,10 @@
 		<Unit filename="src/NodeHeader.cpp" />
 		<Unit filename="src/NodeLateral.cpp" />
 		<Unit filename="src/NodeMatrix.cpp" />
+		<Unit filename="src/NodeScore.cpp" />
 		<Unit filename="src/ReadArchive.cpp" />
+		<Unit filename="src/Score.cpp" />
+		<Unit filename="src/SimplyLinkedListScoreboard.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

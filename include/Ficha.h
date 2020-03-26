@@ -7,11 +7,11 @@ using namespace std;
 class Ficha
 {
     public:
-        Ficha();
+        Ficha(int, char);
         int noFicha;
         int puntaje;
         char letra;
-        int getNoFicha()
+        int getNoFicha();
         int getPuntaje();
         char getLetra();
         void setNoFicha(int);

@@ -63,13 +63,14 @@
 	<string>
 	<sstream>
 
-1585125815 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+1585198331 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
 	"MenuPrincipal.h"
 	<iostream>
 	"ReadArchive.h"
 	"DoubleCircularListDiccionario.h"
+	"MenuJuego.h"
 
-1585122157 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menuprincipal.h
+1585196908 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menuprincipal.h
 	"ReadArchive.h"
 	"DoubleCircularListDiccionario.h"
 
@@ -256,7 +257,7 @@
 	<limits>
 	<type_traits>
 
-1585110902 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
+1585112626 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
 	"DoubleCircularListDiccionario.h"
 	<iostream>
 	"NodeDiccionario.h"
@@ -289,4 +290,64 @@
 
 1585125508 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\createfile.h
 	<iostream>
+
+1585191548 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\colaficha.cpp
+	"ColaFicha.h"
+	"Ficha.h"
+
+1585191519 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\colaficha.h
+	"Ficha.h"
+	"NodeFicha.h"
+
+1585191575 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\ficha.h
+	<iostream>
+
+1585120877 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodeficha.h
+	"Ficha.h"
+
+1585191909 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\ficha.cpp
+	"Ficha.h"
+
+1585191418 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\jugador.cpp
+	"Jugador.h"
+
+1585191418 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\jugador.h
+	<iostream>
+	"ColaFicha.h"
+
+1585114081 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodeficha.cpp
+	"NodeFicha.h"
+	"Ficha.h"
+
+1585196281 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
+	"ColaFicha.h"
+	"GenerateRandom.h"
+	"MenuPrincipal.h"
+
+1585194038 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\generaterandom.h
+	"ColaFicha.h"
+	"Ficha.h"
+
+1585197864 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\generaterandom.cpp
+	"GenerateRandom.h"
+	<cstdlib>
+	<ctime>
+	"ColaFicha.h"
+
+1585196719 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+	"MenuJuego.h"
+	<iostream>
+	"GenerateRandom.h"
+
+1585198331 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\score.cpp
+	"Score.h"
+	<iostream>
+
+1585198362 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\score.h
+	<iostream>
+
+1585197435 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
+	"SimplyLinkedListScoreboard.h"
+
+1585197435 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\simplylinkedlistscoreboard.h
 

@@ -1,30 +1,30 @@
 #include "Ficha.h"
 
-Ficha::Ficha(int _noFicha, int _puntaje, char _letra)
+Ficha::Ficha(int noFicha, char letra)
 {
-    this->noFicha = _noFicha;
-    this->letra = _letra;
-    this->puntaje = _puntaje;
+    this->noFicha = noFicha;
+    this->letra = letra;
+    this->puntaje = 0;
 }
 
-int getNoFicha(){
+int Ficha::getNoFicha(){
     return this->noFicha;
 }
-int getPuntaje(){
+int Ficha::getPuntaje(){
     return this->puntaje;
 }
-char getLetra(){
+char Ficha::getLetra(){
     return this->letra;
 }
 
-void setNoFicha(int nFicha){
+void Ficha::setNoFicha(int nFicha){
     this->noFicha = nFicha;
 }
 
-void setLetra(char l){
+void Ficha::setLetra(char l){
     this->letra = l;
 }
 
-void setPuntaje(int p){
+void Ficha::setPuntaje(int p){
     this->puntaje = p;
 }

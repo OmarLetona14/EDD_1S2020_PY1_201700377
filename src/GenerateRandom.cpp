@@ -1,157 +1,202 @@
 #include "GenerateRandom.h"
 #include <cstdlib>      // rand, srand
 #include <ctime>
-
+#include "ColaFicha.h"
 GenerateRandom::GenerateRandom()
 {
-    //ctor
+    this->cola = new ColaFicha();
 }
 int GenerateRandom::generateR(){
     int valor = 0;
-    srand(time(NULL));
     valor = rand() % 25;
     return valor;
 }
 
-void GenerateRandom::fillQueue(){
+ColaFicha* GenerateRandom::fillQueue(){
     int suma = 0;
+    cout<<"Generando fichas..."<<endl;
     do{
         int random_c = 97+generateR();
-        char letra = (char)random_c;
+        char letra = char(random_c);
+        ficha = new Ficha(cola->getSize()+1,letra);
         switch(letra){
         case 'a':
             if(a<=12){
-
+                ficha->setPuntaje(1);
+                a++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'b':
-            if(){
-
+            if(b<=2){
+                ficha->setPuntaje(3);
+                b++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'c':
-            if(){
-
+            if(c<=4){
+                ficha->setPuntaje(3);
+                c++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'd':
-            if(){
-
+            if(d<=5){
+                ficha->setPuntaje(2);
+                d++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'e':
-            if(){
-
+            if(e<=12){
+                ficha->setPuntaje(1);
+                e++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'f':
-            if(){
-
+            if(f<=1){
+                ficha->setPuntaje(4);
+                f++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'g':
-            break
+            if(g<=2){
+                ficha->setPuntaje(2);
+                g++;suma++;
+                cola->push(ficha);
+            }
+            break;
         case 'h':
-            if(){
-
+            if(h<=2){
+                ficha->setPuntaje(4);
+                h++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'i':
-            if(){
-
+            if(i<=6){
+                ficha->setPuntaje(1);
+                i++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'j':
-            if(){
-
-            }
-            break;
-        case 'k':
-            if(){
-
+            if(j<=1){
+                ficha->setPuntaje(8);
+                j++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'l':
-            if(){
-
+            if(l<=4){
+                ficha->setPuntaje(1);
+                l++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'm':
-            if(){
-
+            if(m<=2){
+                ficha->setPuntaje(3);
+                m++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'n':
-            if(){
-
+            if(n<=5){
+                ficha->setPuntaje(1);
+                n++;suma++;
+                cola->push(ficha);
             }
             break;
-        case 'g':
-            if(){
-
+        case 'ñ':
+            if(ene<=1){
+                ficha->setPuntaje(8);
+                ene++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'o':
-            if(){
-
+            if(o<=9){
+                ficha->setPuntaje(1);
+                o++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'p':
-            if(){
-
+            if(p<=2){
+                ficha->setPuntaje(3);
+                p++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'q':
-            if(){
-
+            if(q<=1){
+                ficha->setPuntaje(5);
+                q++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'r':
-            if(){
-
+            if(r<=5){
+                ficha->setPuntaje(1);
+                r++;suma++;
+                cola->push(ficha);
             }
             break;
         case 's':
-            if(){
-
+            if(s<=6){
+                ficha->setPuntaje(1);
+                s++;suma++;
+                cola->push(ficha);
             }
             break;
         case 't':
-            if(){
-
+            if(t<=4){
+                ficha->setPuntaje(1);
+                t++;suma++;
+                cola->push(ficha);
             }
             break;
-            if(){
-
-            }
         case 'u':
+            if(u<=5){
+                ficha->setPuntaje(1);
+                u++;suma++;
+                cola->push(ficha);
+            }
             break;
         case 'v':
-            if(){
-
-            }
-            break;
-        case 'w':
-            if(){
-
+            if(v<=1){
+                ficha->setPuntaje(4);
+                v++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'x':
-            if(){
-
+            if(random_x<=1){
+                ficha->setPuntaje(8);
+                random_x++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'y':
-            if(){
-
+            if(y<=1){
+                ficha->setPuntaje(4);
+                y++;suma++;
+                cola->push(ficha);
             }
             break;
         case 'z':
+            if(z<=1){
+                ficha->setPuntaje(10);
+                z++;suma++;
+                cola->push(ficha);
+            }
             break;
         }
-    }while(suma<=95);
-
-
-
-
+    }while(suma<=80);
+    cout<<"Fichas generadas correctamente...";
+    return cola;
 }
