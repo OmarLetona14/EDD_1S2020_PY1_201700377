@@ -7,6 +7,7 @@ class NodeFicha
     public:
         NodeFicha(Ficha*);
         NodeFicha *siguiente;
+        NodeFicha *anterior;
         Ficha *ficha;
 
     protected:

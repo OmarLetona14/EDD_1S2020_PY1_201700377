@@ -8,6 +8,7 @@ class NodeScore
         Score *score;
         NodeScore(Score*);
         NodeScore *siguiente;
+        NodeScore *anterior;
     protected:
 
     private:

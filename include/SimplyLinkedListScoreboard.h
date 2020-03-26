@@ -12,6 +12,7 @@ class SimplyLinkedListScoreboard
         int size;
         void mostrarLista();
         SimplyLinkedListScoreboard* devolverPrimerosCinco();
+        Score* devolverMejorPuntaje();
     protected:
 
     private:

@@ -4,4 +4,5 @@ NodeScore::NodeScore(Score *score)
 {
     this->score = score;
     this->siguiente = NULL;
+    this->anterior = NULL;
 }

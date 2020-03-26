@@ -45,6 +45,12 @@ void SimplyLinkedListScoreboard::mostrarLista(){
     }
 }
 
+Score* SimplyLinkedListScoreboard::devolverMejorPuntaje(){
+    if(primero!=NULL && ultimo!=NULL){
+        return ultimo->score;
+    }
+}
+
 SimplyLinkedListScoreboard* SimplyLinkedListScoreboard::devolverPrimerosCinco(){
     SimplyLinkedListScoreboard *scoreboard = new SimplyLinkedListScoreboard();
     NodeScore *aux = primero;
