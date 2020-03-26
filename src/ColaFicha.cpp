@@ -1,5 +1,10 @@
 #include "ColaFicha.h"
 #include "Ficha.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
 ColaFicha::ColaFicha()
 {
     this->size = 0;
@@ -43,6 +48,28 @@ void ColaFicha::pop(){
     }
     cout<<"Pop realizado con exito"<<endl;
     delete aux;
+}
+
+void ColaFicha::generateDOT(std::string nombre_documento){
+    creator = new CreateFile();
+    std::string contenido;
+    ofstream fs(nombre_documento);
+    NodeFicha* aux = primero;
+    contenido += "digraph ColaFichas {";
+    contenido += "node [ fontsize = 16 shape = record] \n";
+    contenido += "\" cola \" [ \n";
+    contenido += "label = \" ";
+    do{
+        std::string cont = "";
+        cont += aux->ficha->letra + " | ";
+        contenido.append(cont);
+        aux = aux->siguiente;
+    }while(aux!=primero);
+    contenido += "\"  \n shape= \"record\"  ]; \n";
+    contenido += "}";
+    fs << contenido;
+    fs.close();
+    creator->create(nombre_documento, "ColaFichas.png");
 }
 
 

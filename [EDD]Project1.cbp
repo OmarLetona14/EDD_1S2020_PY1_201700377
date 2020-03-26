@@ -38,6 +38,8 @@
 		<Unit filename="include/Coordenada.h" />
 		<Unit filename="include/CreateFile.h" />
 		<Unit filename="include/DoubleCircularListDiccionario.h" />
+		<Unit filename="include/DoubleLinkedListFicha.h" />
+		<Unit filename="include/DoubleLinkedListScoreboard.h" />
 		<Unit filename="include/Ficha.h" />
 		<Unit filename="include/GenerateRandom.h" />
 		<Unit filename="include/HeaderList.h" />
@@ -48,6 +50,7 @@
 		<Unit filename="include/Matrix.h" />
 		<Unit filename="include/MenuJuego.h" />
 		<Unit filename="include/MenuPrincipal.h" />
+		<Unit filename="include/NodeABB.h" />
 		<Unit filename="include/NodeDiccionario.h" />
 		<Unit filename="include/NodeFicha.h" />
 		<Unit filename="include/NodeHeader.h" />
@@ -57,11 +60,14 @@
 		<Unit filename="include/ReadArchive.h" />
 		<Unit filename="include/Score.h" />
 		<Unit filename="include/SimplyLinkedListScoreboard.h" />
+		<Unit filename="include/TreeABB.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ColaFicha.cpp" />
 		<Unit filename="src/Coordenada.cpp" />
 		<Unit filename="src/CreateFile.cpp" />
 		<Unit filename="src/DoubleCircularListDiccionario.cpp" />
+		<Unit filename="src/DoubleLinkedListFicha.cpp" />
+		<Unit filename="src/DoubleLinkedListScoreboard.cpp" />
 		<Unit filename="src/Ficha.cpp" />
 		<Unit filename="src/GenerateRandom.cpp" />
 		<Unit filename="src/HeaderList.cpp" />
@@ -72,6 +78,7 @@
 		<Unit filename="src/Matrix.cpp" />
 		<Unit filename="src/MenuJuego.cpp" />
 		<Unit filename="src/MenuPrincipal.cpp" />
+		<Unit filename="src/NodeABB.cpp" />
 		<Unit filename="src/NodeDiccionario.cpp" />
 		<Unit filename="src/NodeFicha.cpp" />
 		<Unit filename="src/NodeHeader.cpp" />
@@ -81,6 +88,7 @@
 		<Unit filename="src/ReadArchive.cpp" />
 		<Unit filename="src/Score.cpp" />
 		<Unit filename="src/SimplyLinkedListScoreboard.cpp" />
+		<Unit filename="src/TreeABB.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

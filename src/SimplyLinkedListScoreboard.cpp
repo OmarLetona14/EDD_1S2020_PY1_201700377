@@ -48,6 +48,8 @@ void SimplyLinkedListScoreboard::mostrarLista(){
 Score* SimplyLinkedListScoreboard::devolverMejorPuntaje(){
     if(primero!=NULL && ultimo!=NULL){
         return ultimo->score;
+    }else{
+        return NULL;
     }
 }
 
@@ -64,5 +66,13 @@ SimplyLinkedListScoreboard* SimplyLinkedListScoreboard::devolverPrimerosCinco(){
     }else{
         cout<<"Lista vacia" <<endl;
     }
-    return scoreboard;
+    if(scoreboard->getSize()==0){
+        return NULL;
+    }else{
+        return scoreboard;
+    }
+}
+
+int SimplyLinkedListScoreboard::getSize(){
+    return this->size;
 }

@@ -8,7 +8,7 @@ using namespace std;
 class Jugador
 {
     public:
-        Jugador(int, std::string, int,SimplyLinkedListScoreboard*, DoubleLinkedListFicha*);
+        Jugador(int, std::string, int);
         std::string nombre_jugador;
         int puntaje, noJugador;
         SimplyLinkedListScoreboard *puntajes;

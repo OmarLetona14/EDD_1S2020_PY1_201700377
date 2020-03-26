@@ -11,6 +11,7 @@ class SimplyLinkedListScoreboard
         NodeScore *ultimo;
         int size;
         void mostrarLista();
+        int getSize();
         SimplyLinkedListScoreboard* devolverPrimerosCinco();
         Score* devolverMejorPuntaje();
     protected:

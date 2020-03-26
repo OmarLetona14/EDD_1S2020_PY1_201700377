@@ -8,6 +8,7 @@ class DoubleLinkedListScoreboard
     public:
         DoubleLinkedListScoreboard();
         void insertar(Score*);
+        int getSize();
         NodeScore *primero;
         NodeScore *ultimo;
         int size;

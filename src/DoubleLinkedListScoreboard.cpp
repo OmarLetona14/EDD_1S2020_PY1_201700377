@@ -23,3 +23,7 @@ void DoubleLinkedListScoreboard::insertar(Score *score){
         ultimo =nuevo;
     }
 }
+
+int DoubleLinkedListScoreboard::getSize(){
+    return this->size;
+}
