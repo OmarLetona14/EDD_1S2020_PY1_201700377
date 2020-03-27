@@ -1,5 +1,5 @@
 #include <ostream>
-
+#include <fstream>
 #include "TreeABB.h"
 TreeABB::TreeABB(){
     this->root = NULL;
@@ -14,8 +14,6 @@ void TreeABB::insert(NodeABB *&root, Jugador *data){
             insert(root->left, data);
         }else if(data->getNoJugador() > root->getData()->getNoJugador()){
             insert(root->right, data);
-        }else{
-
         }
     }
 }
@@ -32,27 +30,6 @@ NodeABB* TreeABB::searchNode(int id, NodeABB *root, NodeABB* tmp){
         tmp = searchNode(id, root->right, tmp);
     }
     return tmp;
-}
-
-std::vector<Matrix> TreeABB::GenerateImgPre(int node){
-    std::cout << "\nCapas a usar:" << std::endl;
-    std::vector<Matrix> vec;
-    preOrden(root, 0, node, vec);
-    return vec;
-}
-
-std::vector<Matrix> TreeABB::GenerateImgIn(int node){
-    std::cout << "\nCapas a usar:" << std::endl;
-    std::vector<Matrix> vec;
-    inOrden(root, 0, node, vec);
-    return vec;
-}
-
-std::vector<Matrix> TreeABB::GenerateImgPost(int node){
-    std::cout << "\nCapas a usar:" << std::endl;
-    std::vector<Matrix> vec;
-    PostOrden(root, 0, node, vec);
-    return vec;
 }
 
 int TreeABB::preOrden(NodeABB *root, int iteratorr, int limit, std::vector<Matrix> &listMatrix){
@@ -157,4 +134,49 @@ void TreeABB::ReportPost(NodeABB* root){
     ReportPost(root->getLeft());
     ReportPost(root->getRight());
     std::cout << std::to_string(root->getData()->getNoJugador()) + " ";
+}
+
+void TreeABB::GraphABB(NodeABB* root){
+    std::string text = "digraph grafica{\n"
+            + std::string("rankdir=TB;\n")
+            + "node [shape = record, style=filled, fillcolor=seashell2];\n";
+    text = Branch(root, text);
+    text = Children(root, text);
+    text += "}";
+    std::ofstream file;
+    file.open("ArbolABB.dot");
+    if(file.fail()){
+        std::cout << "Error al abrir el txt" << std::endl;
+        return;
+    }
+    file << text << std::endl;
+    file.close();
+    system("dot ArbolABB.dot -o ArbolABB.png -Tpng");
+    system("cmd /c start ArbolABB.png");
+}
+
+
+std::string TreeABB::Branch(NodeABB* root, std::string chain){
+    if(root == NULL){
+        return chain;
+    }
+    chain += "nodo" + root->getData()->getNombreJugador() + " [ label = \" " + root->getData()->getNombreJugador() + "\"];\n";
+    chain = Branch(root->getLeft(), chain);
+    chain = Branch(root->getRight(), chain);
+    return chain;
+}
+
+std::string TreeABB::Children(NodeABB* root, std::string chain){
+    if(root == NULL){
+        return chain;
+    }
+    if(root->getLeft() != NULL){
+        chain += "nodo" + root->getData()->getNombreJugador() + ": c0->nodo" + root->getLeft()->getData()->getNombreJugador() + ";\n";
+    }
+    if(root->getRight() != NULL){
+        chain += "nodo" + root->getData()->getNombreJugador() + ": c1->nodo" + root->getRight()->getData()->getNombreJugador() + ";\n";
+    }
+    chain = Children(root->getLeft(), chain);
+    chain = Children(root->getRight(), chain);
+    return chain;
 }

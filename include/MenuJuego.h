@@ -5,18 +5,24 @@
 #include "MenuPrincipal.h"
 #include "TreeABB.h"
 #include "NodeABB.h"
+#include "Jugador.h"
 #include <iostream>
 using namespace std;
 class MenuJuego
 {
     public:
-        TreeABB *arbol_jugadores;
+        NodeABB *root;
+        ColaFicha* getColaFichas();
         GenerateRandom *randomQueue;
         ColaFicha *colaFichas;
         MenuJuego();
         void mostrarMenu();
         int opcion;
         void nuevoJugador(std::string);
+        void insertarJugador();
+        TreeABB* jugadores;
+        TreeABB* getJugadores();
+        NodeABB* getRoot();
     protected:
 
     private:

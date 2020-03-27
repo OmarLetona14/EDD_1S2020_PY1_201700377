@@ -54,22 +54,29 @@ void ColaFicha::generateDOT(std::string nombre_documento){
     creator = new CreateFile();
     std::string contenido;
     ofstream fs(nombre_documento);
-    NodeFicha* aux = primero;
+    NodeFicha *aux = primero;
     contenido += "digraph ColaFichas {";
     contenido += "node [ fontsize = 16 shape = record] \n";
     contenido += "\" cola \" [ \n";
     contenido += "label = \" ";
     do{
         std::string cont = "";
-        cont += aux->ficha->letra + " | ";
+        char c = aux->ficha->getLetra();
+        std::string letra(1, c);
+        std::string label_content = letra + " x " + std::to_string(aux->ficha->getPuntaje());
+        if(aux!=ultimo){
+            cont +=  label_content + " | ";
+        }else{
+            cont += label_content;
+        }
         contenido.append(cont);
         aux = aux->siguiente;
-    }while(aux!=primero);
+    }while(aux!=NULL);
     contenido += "\"  \n shape= \"record\"  ]; \n";
     contenido += "}";
     fs << contenido;
     fs.close();
-    creator->create(nombre_documento, "ColaFichas.png");
+    creator->create(nombre_documento, "fichas.png");
 }
 
 

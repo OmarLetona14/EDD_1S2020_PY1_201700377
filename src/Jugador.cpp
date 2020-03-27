@@ -4,10 +4,11 @@
 #include <iostream>
 using namespace std;
 
-Jugador::Jugador(int noJugador, std::string nombre_jugador,int puntaje)
+Jugador::Jugador(int noJugador, std::string nombre_jugador)
 {
     this->noJugador = noJugador;
     this->nombre_jugador = nombre_jugador;
+    this->puntaje =0;
     this->puntajes = new SimplyLinkedListScoreboard();
     this->fichas = new DoubleLinkedListFicha();
 }

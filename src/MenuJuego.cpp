@@ -8,7 +8,7 @@ using namespace std;
 
 MenuJuego::MenuJuego()
 {
-    this->arbol_jugadores = new TreeABB();
+    this->jugadores = new TreeABB();
     this->colaFichas = new ColaFicha();
 }
 
@@ -25,25 +25,47 @@ void MenuJuego::mostrarMenu(){
             randomQueue = new GenerateRandom();
             colaFichas = randomQueue->fillQueue();
             colaFichas->desplegarCola();
+            colaFichas->generateDOT("fichas.dot");
             break;
         case 2:
             break;
         case 3:
-
+            insertarJugador();
             break;
         case 4:
             break;
         }
+        system("cls");
     }while(opcion!=4);
 
 
 }
 
-
-void MenuJuego::nuevoJugador(std::string nombre_jugador){
-    int primera_letra = nombre_jugador[0];
-    Jugador* nuevo_jugador = new Jugador(primera_letra, nombre_jugador, 0);
+void MenuJuego::insertarJugador(){
+    try{
+        root= nullptr;
+        std::string nombre ="";
+        cout<<"Inserte el nombre del juego "<<endl;
+        cin>>nombre;
+        int primera_letra = (int)nombre[0];
+        cout<<std::to_string(primera_letra);
+        Jugador *jugador = new Jugador(primera_letra,nombre);
+        jugadores->insert(root, jugador);
+        delete jugador;
+    }catch(exception e){
+        cout<<"Ocurrio un error al intentar ingresar el jugador"<<endl;
+    }
 
 }
 
+TreeABB* MenuJuego::getJugadores(){
+    return this->jugadores;
+}
 
+ColaFicha* MenuJuego::getColaFichas(){
+    return this->colaFichas;
+}
+
+NodeABB* MenuJuego::getRoot(){
+    return this->root;
+}

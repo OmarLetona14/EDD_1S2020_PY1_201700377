@@ -24,6 +24,9 @@ public:
     void ReportPre(NodeABB*);
     void ReportIn(NodeABB*);
     void ReportPost(NodeABB*);
+    void GraphABB(NodeABB*);
+    std::string Branch(NodeABB*,std::string);
+    std::string Children(NodeABB*,std::string);
 };
 
 #endif /* TREEABB_H */

@@ -8,6 +8,8 @@ using namespace std;
 class DoubleCircularListDiccionario
 {
     public:
+        int size;
+        int getSize();
         DoubleCircularListDiccionario();
         void insertarNodo(std::string);
         void desplegarLista();

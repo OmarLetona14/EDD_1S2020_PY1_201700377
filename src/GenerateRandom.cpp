@@ -4,7 +4,6 @@
 #include "ColaFicha.h"
 GenerateRandom::GenerateRandom()
 {
-    this->cola = new ColaFicha();
 }
 int GenerateRandom::generateR(){
     int valor = 0;
@@ -13,11 +12,15 @@ int GenerateRandom::generateR(){
 }
 
 ColaFicha* GenerateRandom::fillQueue(){
-    int suma = 0;
+    int suma = 0, a= 0, b=0, c=0, d=0, e=0, f=0, g=0, h=0, i=0, j=0, l=0, m=0, n=0, ene=0,
+    o=0, p=0, q=0, r=0, s=0,t=0,u=0,v=0,w=0,random_x=0, y=0, z=0;;
+    this->cola = new ColaFicha();
     cout<<"Generando fichas..."<<endl;
     do{
         int random_c = 97+generateR();
+        cout<<std::to_string(random_c)<<endl;
         char letra = char(random_c);
+        cout<<letra<<endl;
         ficha = new Ficha(cola->getSize()+1,letra);
         switch(letra){
         case 'a':
@@ -196,7 +199,8 @@ ColaFicha* GenerateRandom::fillQueue(){
             }
             break;
         }
-    }while(suma<=80);
+    }while(suma<=95);
     cout<<"Fichas generadas correctamente...";
+    delete ficha;
     return cola;
 }

@@ -2,10 +2,14 @@
 #define MENUPRINCIPAL_H
 #include "ReadArchive.h"
 #include "DoubleCircularListDiccionario.h"
+#include "MenuJuego.h"
+
 class MenuPrincipal
 {
     public:
-        DoubleCircularListDiccionario* diccionario_palabras;
+        //MenuJuego *nuevo_juego;
+        void generarReportes();
+        DoubleCircularListDiccionario *diccionario_palabras;
         int opcion;
         MenuPrincipal();
         void desplegarMenu();

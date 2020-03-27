@@ -7,6 +7,7 @@ using namespace std;
 
 DoubleCircularListDiccionario::DoubleCircularListDiccionario()
 {
+    this->size =0;
     this->ultimo = NULL;
     this->primero = NULL;
 }
@@ -24,7 +25,12 @@ void DoubleCircularListDiccionario::insertarNodo(std::string palabra){
         ultimo = nuevo_nodo;
         primero->anterior = ultimo;
     }
+    size++;
     cout<< "Nodo ingresador correctamente" <<endl;
+}
+
+int DoubleCircularListDiccionario::getSize(){
+    return this->size;
 }
 
 void DoubleCircularListDiccionario::desplegarLista(){

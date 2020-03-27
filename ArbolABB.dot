@@ -1,0 +1,5 @@
+digraph grafica{
+rankdir=TB;
+node [shape = record, style=filled, fillcolor=seashell2];
+nodorodrigo [ label = "<c0>|Capa rodrigo|<c1>"];
+}
