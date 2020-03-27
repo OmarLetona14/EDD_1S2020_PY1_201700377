@@ -11,7 +11,7 @@ using namespace std;
 class MenuJuego
 {
     public:
-        NodeABB *root;
+        NodeABB *raiz;
         ColaFicha* getColaFichas();
         GenerateRandom *randomQueue;
         ColaFicha *colaFichas;

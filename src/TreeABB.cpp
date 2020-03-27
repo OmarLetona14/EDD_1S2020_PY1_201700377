@@ -2,7 +2,7 @@
 #include <fstream>
 #include "TreeABB.h"
 TreeABB::TreeABB(){
-    this->root = NULL;
+    //this->root = NULL;
 }
 
 void TreeABB::insert(NodeABB *&root, Jugador *data){
@@ -14,6 +14,8 @@ void TreeABB::insert(NodeABB *&root, Jugador *data){
             insert(root->left, data);
         }else if(data->getNoJugador() > root->getData()->getNoJugador()){
             insert(root->right, data);
+        }else{
+            cout << "Fallo al ingresar el nodo" <<endl;
         }
     }
 }
@@ -113,7 +115,7 @@ void TreeABB::ReportPre(NodeABB* root){
     if(root == NULL){
         return;
     }
-    std::cout << std::to_string(root->getData()->getNoJugador()) + " ";
+    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
     ReportPre(root->getLeft());
     ReportPre(root->getRight());
 }
@@ -123,7 +125,7 @@ void TreeABB::ReportIn(NodeABB* root){
         return;
     }
     ReportIn(root->getLeft());
-    std::cout << std::to_string(root->getData()->getNoJugador()) + " ";
+    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
     ReportIn(root->getRight());
 }
 
@@ -133,13 +135,13 @@ void TreeABB::ReportPost(NodeABB* root){
     }
     ReportPost(root->getLeft());
     ReportPost(root->getRight());
-    std::cout << std::to_string(root->getData()->getNoJugador()) + " ";
+    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
 }
 
 void TreeABB::GraphABB(NodeABB* root){
     std::string text = "digraph grafica{\n"
             + std::string("rankdir=TB;\n")
-            + "node [shape = record, style=filled, fillcolor=seashell2];\n";
+            + "node [shape = circle, style=filled, fillcolor=seashell2];\n";
     text = Branch(root, text);
     text = Children(root, text);
     text += "}";
@@ -179,4 +181,18 @@ std::string TreeABB::Children(NodeABB* root, std::string chain){
     chain = Children(root->getLeft(), chain);
     chain = Children(root->getRight(), chain);
     return chain;
+}
+
+void TreeABB::createDOT(std::string type, NodeABB *raiz){
+    contenido = "";
+    contenido += "digraph { \n";
+    contenido += "node [shape = record] \n";
+    if(type=="inorder"){
+        ReportIn(raiz);
+    }else if(type=="preorder"){
+        ReportPre(raiz);
+    }else if(type=="postorder"){
+        ReportPost(raiz);
+    }
+    contenido += "}";
 }

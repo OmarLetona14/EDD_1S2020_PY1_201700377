@@ -8,7 +8,7 @@
 
 class TreeABB {
 public:
-    NodeABB *root;
+    //NodeABB *root;
     TreeABB();
     void insert(NodeABB *&root, Jugador*);
     int preOrden(NodeABB *, int, int, std::vector<Matrix>&);
@@ -25,8 +25,10 @@ public:
     void ReportIn(NodeABB*);
     void ReportPost(NodeABB*);
     void GraphABB(NodeABB*);
+    void createDOT(std::string, NodeABB*);
     std::string Branch(NodeABB*,std::string);
     std::string Children(NodeABB*,std::string);
+    std::string contenido;
 };
 
 #endif /* TREEABB_H */

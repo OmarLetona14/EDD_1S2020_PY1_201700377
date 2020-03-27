@@ -66,7 +66,6 @@ void MenuPrincipal::desplegarMenu(){
             break;
 
         }
-
         system("cls");
     }while(opcion!=11);
             break;

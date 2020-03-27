@@ -10,6 +10,7 @@ MenuJuego::MenuJuego()
 {
     this->jugadores = new TreeABB();
     this->colaFichas = new ColaFicha();
+    this->raiz = nullptr;
 }
 
 void MenuJuego::mostrarMenu(){
@@ -31,6 +32,7 @@ void MenuJuego::mostrarMenu(){
             break;
         case 3:
             insertarJugador();
+
             break;
         case 4:
             break;
@@ -43,15 +45,13 @@ void MenuJuego::mostrarMenu(){
 
 void MenuJuego::insertarJugador(){
     try{
-        root= nullptr;
         std::string nombre ="";
         cout<<"Inserte el nombre del juego "<<endl;
         cin>>nombre;
         int primera_letra = (int)nombre[0];
         cout<<std::to_string(primera_letra);
         Jugador *jugador = new Jugador(primera_letra,nombre);
-        jugadores->insert(root, jugador);
-        delete jugador;
+        jugadores->insert(raiz, jugador);
     }catch(exception e){
         cout<<"Ocurrio un error al intentar ingresar el jugador"<<endl;
     }
@@ -67,5 +67,5 @@ ColaFicha* MenuJuego::getColaFichas(){
 }
 
 NodeABB* MenuJuego::getRoot(){
-    return this->root;
+    return this->raiz;
 }
