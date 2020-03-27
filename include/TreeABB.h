@@ -5,10 +5,11 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
-
+#include "CreateFile.h"
 class TreeABB {
 public:
-    //NodeABB *root;
+    int iteracion=0;
+    CreateFile *creator;
     TreeABB();
     void insert(NodeABB *&root, Jugador*);
     int preOrden(NodeABB *, int, int, std::vector<Matrix>&);
@@ -25,7 +26,7 @@ public:
     void ReportIn(NodeABB*);
     void ReportPost(NodeABB*);
     void GraphABB(NodeABB*);
-    void createDOT(std::string, NodeABB*);
+    void createDOT(std::string, std::string, NodeABB*);
     std::string Branch(NodeABB*,std::string);
     std::string Children(NodeABB*,std::string);
     std::string contenido;

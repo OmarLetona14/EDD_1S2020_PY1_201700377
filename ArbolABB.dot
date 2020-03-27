@@ -6,10 +6,8 @@ nodocarlos [ label = " carlos"];
 nodoantonio [ label = " antonio"];
 nodoeduardo [ label = " eduardo"];
 nodorodrigo [ label = " rodrigo"];
-nodozoila [ label = " zoila"];
 nodoheidy: c0->nodocarlos;
 nodoheidy: c1->nodorodrigo;
 nodocarlos: c0->nodoantonio;
 nodocarlos: c1->nodoeduardo;
-nodorodrigo: c1->nodozoila;
 }

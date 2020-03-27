@@ -1,6 +1,7 @@
 #include <ostream>
 #include <fstream>
 #include "TreeABB.h"
+#include <fstream>
 TreeABB::TreeABB(){
     //this->root = NULL;
 }
@@ -115,7 +116,14 @@ void TreeABB::ReportPre(NodeABB* root){
     if(root == NULL){
         return;
     }
-    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
+    if(iteracion!=0){
+         contenido += "-> \"  " + root->getData()->getNombreJugador() + " \" ";
+
+    }else{
+        contenido += " \"  " + root->getData()->getNombreJugador() + " \" ";
+
+    }
+    iteracion++;
     ReportPre(root->getLeft());
     ReportPre(root->getRight());
 }
@@ -125,7 +133,12 @@ void TreeABB::ReportIn(NodeABB* root){
         return;
     }
     ReportIn(root->getLeft());
-    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
+    if(iteracion != 0){
+        contenido += "-> \"  " + root->getData()->getNombreJugador() + " \" ";
+    }else{
+        contenido += " \"  " + root->getData()->getNombreJugador() + " \"";
+    }
+    iteracion++;
     ReportIn(root->getRight());
 }
 
@@ -135,7 +148,12 @@ void TreeABB::ReportPost(NodeABB* root){
     }
     ReportPost(root->getLeft());
     ReportPost(root->getRight());
-    contenido += " \"  " + root->getData()->getNombreJugador() + " \" ->";
+    if(iteracion!=0){
+        contenido += " -> \"  " + root->getData()->getNombreJugador() + " \"";
+    }else{
+        contenido += " \"  " + root->getData()->getNombreJugador() + " \"";
+    }
+    iteracion++;
 }
 
 void TreeABB::GraphABB(NodeABB* root){
@@ -183,9 +201,12 @@ std::string TreeABB::Children(NodeABB* root, std::string chain){
     return chain;
 }
 
-void TreeABB::createDOT(std::string type, NodeABB *raiz){
+void TreeABB::createDOT(std::string filename, std::string type, NodeABB *raiz){
+    creator = new CreateFile();
+    ofstream fs(filename);
     contenido = "";
     contenido += "digraph { \n";
+    contenido += " rankdir=LR \n";
     contenido += "node [shape = record] \n";
     if(type=="inorder"){
         ReportIn(raiz);
@@ -195,4 +216,8 @@ void TreeABB::createDOT(std::string type, NodeABB *raiz){
         ReportPost(raiz);
     }
     contenido += "}";
+    fs << contenido;
+    fs.close();
+    creator->create(filename, "diccionario.png");
+    iteracion =0;
 }
