@@ -1,4 +1,4 @@
 digraph { 
  rankdir=LR 
 node [shape = record] 
- "  heidy " -> "  carlos " -> "  antonio " -> "  eduardo " -> "  rodrigo " }
+ "  Heidy " -> "  Carlos " -> "  Antonio " -> "  Eduardo " -> "  Rodrigo " }

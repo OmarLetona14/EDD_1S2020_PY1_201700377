@@ -48,7 +48,7 @@ void MenuJuego::insertarJugador(){
         std::string nombre ="";
         cout<<"Inserte el nombre del juego "<<endl;
         cin>>nombre;
-        int primera_letra = (int)nombre[0];
+        int primera_letra = tolower(nombre[0]);
         cout<<std::to_string(primera_letra);
         Jugador *jugador = new Jugador(primera_letra,nombre);
         jugadores->insert(raiz, jugador);

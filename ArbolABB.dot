@@ -1,13 +1,13 @@
 digraph grafica{
 rankdir=TB;
 node [shape = circle, style=filled, fillcolor=seashell2];
-nodoheidy [ label = " heidy"];
-nodocarlos [ label = " carlos"];
-nodoantonio [ label = " antonio"];
-nodoeduardo [ label = " eduardo"];
-nodorodrigo [ label = " rodrigo"];
-nodoheidy: c0->nodocarlos;
-nodoheidy: c1->nodorodrigo;
-nodocarlos: c0->nodoantonio;
-nodocarlos: c1->nodoeduardo;
+nodoHeidy [ label = " Heidy"];
+nodoCarlos [ label = " Carlos"];
+nodoAntonio [ label = " Antonio"];
+nodoEduardo [ label = " Eduardo"];
+nodoRodrigo [ label = " Rodrigo"];
+nodoHeidy: c0->nodoCarlos;
+nodoHeidy: c1->nodoRodrigo;
+nodoCarlos: c0->nodoAntonio;
+nodoCarlos: c1->nodoEduardo;
 }
