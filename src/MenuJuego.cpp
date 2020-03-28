@@ -32,7 +32,6 @@ void MenuJuego::mostrarMenu(){
             break;
         case 3:
             insertarJugador();
-
             break;
         case 4:
             break;
@@ -50,8 +49,10 @@ void MenuJuego::insertarJugador(){
         cin>>nombre;
         int primera_letra = tolower(nombre[0]);
         cout<<std::to_string(primera_letra);
-        Jugador *jugador = new Jugador(primera_letra,nombre);
+        Jugador *jugador = new Jugador(jugadores->getSize() + 1,nombre, primera_letra);
         jugadores->insert(raiz, jugador);
+        cout<< "Jugador insertado exitosamente"<<endl;
+        system("pause");
     }catch(exception e){
         cout<<"Ocurrio un error al intentar ingresar el jugador"<<endl;
     }

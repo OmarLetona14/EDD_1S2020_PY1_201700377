@@ -4,16 +4,17 @@
 #include "LateralList.h"
 #include "HeaderList.h"
 #include <string>
+#include "Ficha.h"
 
 class Matrix {
 public:
     HeaderList header;
     LateralList lateral;
     Matrix();
-    void insert(int, int, std::string);
+    void insert(int, int, Ficha*);
     int MaximunHeader();
     int MaximunLateral();
-    std::string ExistColor(int, int);
+    Ficha* ExistFicha(int, int);
 
 };
 

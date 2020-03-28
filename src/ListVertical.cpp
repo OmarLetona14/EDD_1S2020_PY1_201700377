@@ -1,14 +1,14 @@
 #include "ListVertical.h"
 #include <string>
 #include <sstream>
-
+#include "Ficha.h"
 ListVertical::ListVertical(){
     this->first = NULL;
     this->last = NULL;
 }
 
-void ListVertical::insert(std::string color, int x, int y){
-    NodeMatrix *newNode = new NodeMatrix(color, x, y);
+void ListVertical::insert(Ficha *ficha, int x, int y){
+    NodeMatrix *newNode = new NodeMatrix(ficha, x, y);
     if(first != NULL){
         if(newNode->x < first->x){
             insertinFront(newNode);

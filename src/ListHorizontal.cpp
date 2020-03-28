@@ -2,14 +2,14 @@
 #include <sstream>
 #include <string>
 #include <iostream>
-
+#include "Ficha.h"
 ListHorizontal::ListHorizontal(){
     this->first = NULL;
     this->last = NULL;
 }
 
-void ListHorizontal::insert(std::string color, int x, int y){
-    NodeMatrix *newNode = new NodeMatrix(color, x, y);
+void ListHorizontal::insert(Ficha *ficha, int x, int y){
+    NodeMatrix *newNode = new NodeMatrix(ficha, x, y);
     if(first != NULL){
         if(newNode->y < first->y){
             insertinFront(newNode);

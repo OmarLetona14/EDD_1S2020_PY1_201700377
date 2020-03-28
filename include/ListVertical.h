@@ -4,13 +4,14 @@
 #include "NodeMatrix.h"
 #include <iostream>
 #include <string>
+#include "Ficha.h"
 
 class ListVertical {
 public:
     NodeMatrix *first;
     NodeMatrix *last;
     ListVertical();
-    void insert(std::string, int, int);
+    void insert(Ficha*, int, int);
     void insertinFront(NodeMatrix*);
     void insertinEnd(NodeMatrix*);
     void insertinMedium(NodeMatrix*);

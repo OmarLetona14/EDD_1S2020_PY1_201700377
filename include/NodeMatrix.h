@@ -3,10 +3,10 @@
 
 #include <string>
 #include <cstddef>
-
+#include "Ficha.h"
 class NodeMatrix {
 private:
-    std::string color;
+    Ficha *ficha;
     NodeMatrix *up;
     NodeMatrix *down;
     NodeMatrix *next;
@@ -14,13 +14,13 @@ private:
 public:
     int x;
     int y;
-    NodeMatrix(std::string, int , int);
-    void setColor(std::string);
+    NodeMatrix(Ficha*, int , int);
+    void setFicha(Ficha*);
     void setUp(NodeMatrix*);
     void setDown(NodeMatrix*);
     void setNext(NodeMatrix*);
     void setPrevious(NodeMatrix*);
-    std::string getColor();
+    Ficha* getFicha();
     NodeMatrix* getUp();
     NodeMatrix* getDown();
     NodeMatrix* getNext();

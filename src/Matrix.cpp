@@ -1,9 +1,10 @@
 #include "Matrix.h"
+#include "Ficha.h"
 
 Matrix::Matrix(){
 }
 
-void Matrix::insert(int x, int y, std::string color){
+void Matrix::insert(int x, int y, Ficha *ficha){
     if(header.existHeader(y) == false){
         header.insert(y);
     }
@@ -14,8 +15,8 @@ void Matrix::insert(int x, int y, std::string color){
     NodeLateral *tmpL;
     tmpH = header.searchHeader(y);
     tmpL = lateral.searchLateral(x);
-    tmpH->column.insert(color, x, y);
-    tmpL->row.insert(color, x, y);
+    tmpH->column.insert(ficha, x, y);
+    tmpL->row.insert(ficha, x, y);
 }
 
 int Matrix::MaximunHeader(){
@@ -38,16 +39,16 @@ int Matrix::MaximunLateral(){
     return l;
 }
 
-std::string Matrix::ExistColor(int x, int y){
+Ficha* Matrix::ExistFicha(int x, int y){
     if(lateral.existLateral(x) && header.existHeader(y)){
         NodeLateral *node = lateral.searchLateral(x);
         NodeMatrix *tmp = node->row.first;
         while(tmp != NULL){
             if(tmp->x == x && tmp->y == y){
-                return tmp->getColor();
+                return tmp->getFicha();
             }
             tmp = tmp->getNext();
         }
     }
-    return "";
+    return nullptr;
 }

@@ -1,7 +1,7 @@
 #include "NodeMatrix.h"
-
-NodeMatrix::NodeMatrix(std::string color, int x, int y){
-    this->color = color;
+#include "Ficha.h"
+NodeMatrix::NodeMatrix(Ficha* ficha, int x, int y){
+    this->ficha = ficha;
     this->x = x;
     this->y = y;
     this->up = NULL;
@@ -10,8 +10,8 @@ NodeMatrix::NodeMatrix(std::string color, int x, int y){
     this->previous = NULL;
 }
 
-void NodeMatrix::setColor(std::string color){
-    this->color = color;
+void NodeMatrix::setFicha(Ficha * ficha){
+    this->ficha = ficha;
 }
 
 void NodeMatrix::setDown(NodeMatrix* down){
@@ -30,8 +30,8 @@ void NodeMatrix::setPrevious(NodeMatrix* previous){
     this->previous = previous;
 }
 
-std::string NodeMatrix::getColor(){
-    return this->color;
+Ficha* NodeMatrix::getFicha(){
+    return this->ficha;
 }
 
 NodeMatrix* NodeMatrix::getDown(){

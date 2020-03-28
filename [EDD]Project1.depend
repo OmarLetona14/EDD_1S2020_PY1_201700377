@@ -342,7 +342,7 @@
 	"ColaFicha.h"
 	"Ficha.h"
 
-1585270892 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\generaterandom.cpp
+1585350491 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\generaterandom.cpp
 	"GenerateRandom.h"
 	<cstdlib>
 	<ctime>

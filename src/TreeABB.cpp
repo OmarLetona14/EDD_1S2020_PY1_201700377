@@ -4,19 +4,28 @@
 #include <fstream>
 TreeABB::TreeABB(){
     //this->root = NULL;
+    this->size = 0;
+}
+
+int TreeABB::getSize(){
+    return this->size;
 }
 
 void TreeABB::insert(NodeABB *&root, Jugador *data){
     if(root == NULL){
         NodeABB *newNode = new NodeABB(data);
         root = newNode;
+        size++;
     }else{
         if(data->getNoJugador() < root->getData()->getNoJugador()){
             insert(root->left, data);
+            size++;
         }else if(data->getNoJugador() > root->getData()->getNoJugador()){
             insert(root->right, data);
+            size++;
         }else{
             cout << "Fallo al ingresar el nodo" <<endl;
+            return;
         }
     }
 }
