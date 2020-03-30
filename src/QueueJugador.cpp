@@ -48,6 +48,11 @@ void QueueJugador::pop(){
     delete aux;
 }
 
+Jugador* QueueJugador::devolverUltimo(){
+    if(primero!=nullptr){
+        return primero->jugador;
+    }return nullptr;
+}
 
 int QueueJugador::getSize(){
     return this->size;

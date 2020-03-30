@@ -28,7 +28,6 @@ void MenuPrincipal::desplegarMenu(){
                 reader = new ReadArchive(diccionario_palabras);
                 reader->readJSON(file_string);
                 cout<< "Carga masiva realizada con exito" <<endl;
-
             }
             break;
         case 2:

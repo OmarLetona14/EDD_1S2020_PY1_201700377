@@ -14,7 +14,7 @@ class QueueJugador
         bool exists(Jugador*);
         int getSize();
         QueueJugador();
-
+        Jugador* devolverUltimo();
     protected:
 
     private:

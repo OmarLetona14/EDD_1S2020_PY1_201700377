@@ -7,6 +7,7 @@
 class MenuPrincipal
 {
     public:
+        int dimension_tablero;
         //MenuJuego *nuevo_juego;
         void generarReportes();
         DoubleCircularListDiccionario *diccionario_palabras;

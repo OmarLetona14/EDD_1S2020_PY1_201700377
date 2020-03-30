@@ -5,9 +5,12 @@
 #include "HeaderList.h"
 #include <string>
 #include "Ficha.h"
-
+#include "CreateFile.h"
+#include <iostream>
+using namespace std;
 class Matrix {
 public:
+    CreateFile *creator;
     HeaderList header;
     LateralList lateral;
     Matrix();
@@ -15,7 +18,7 @@ public:
     int MaximunHeader();
     int MaximunLateral();
     Ficha* ExistFicha(int, int);
-
+    void createImage(Matrix*, std::string);
 };
 
 #endif /* MATRIX_H */

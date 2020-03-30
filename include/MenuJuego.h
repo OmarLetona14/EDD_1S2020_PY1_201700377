@@ -7,11 +7,15 @@
 #include "NodeABB.h"
 #include "Jugador.h"
 #include "QueueJugador.h"
+#include "Matrix.h"
+#include "NodeMatrix.h"
 #include <iostream>
 using namespace std;
 class MenuJuego
 {
     public:
+        void llenarTablero(Matrix*&,int);
+        Matrix *tablero;
         QueueJugador *cola_jugadores;
         NodeABB *raiz;
         ColaFicha* getColaFichas();

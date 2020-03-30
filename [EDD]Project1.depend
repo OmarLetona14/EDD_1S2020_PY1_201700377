@@ -300,13 +300,13 @@
 1585125508 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\createfile.h
 	<iostream>
 
-1585266985 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\colaficha.cpp
+1585539048 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\colaficha.cpp
 	"ColaFicha.h"
 	"Ficha.h"
 	<iostream>
 	<fstream>
 
-1585264618 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\colaficha.h
+1585539048 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\colaficha.h
 	"Ficha.h"
 	"NodeFicha.h"
 	"CreateFile.h"
@@ -337,7 +337,7 @@
 	"NodeFicha.h"
 	"Ficha.h"
 
-1585513498 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
+1585538690 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
 	"ColaFicha.h"
 	"GenerateRandom.h"
 	"MenuPrincipal.h"
@@ -358,7 +358,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585537284 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585540370 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -434,7 +434,7 @@
 1585511713 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodejugador.h
 	"Jugador.h"
 
-1585511547 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\queuejugador.h
+1585540201 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\queuejugador.h
 	"Jugador.h"
 	"NodeJugador.h"
 

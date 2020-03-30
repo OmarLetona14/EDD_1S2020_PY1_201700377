@@ -9,6 +9,7 @@ using json = nlohmann::json;
 ReadArchive::ReadArchive(DoubleCircularListDiccionario* _diccionario)
 {
     this->diccionario = _diccionario;
+    this->dimension = 0;
 }
 void ReadArchive::readJSON(std::string filename){
     std::ifstream i(filename);
@@ -17,6 +18,9 @@ void ReadArchive::readJSON(std::string filename){
     for(int x = 0; x<j.at("diccionario").size();x++){
         diccionario->insertarNodo(j.at("diccionario")[x].at("palabra"));
     }
-    diccionario->desplegarLista();
+    dimension = stoi(j.at("dimension"));
+}
 
+int ReadArchive::returnDimension(){
+    return this->dimension;
 }

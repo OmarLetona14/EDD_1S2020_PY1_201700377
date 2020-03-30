@@ -5,6 +5,9 @@
 #include "NodeABB.h"
 #include "Jugador.h"
 #include "QueueJugador.h"
+#include "Matrix.h"
+#include "MenuPrincipal.h"
+#include "NodeMatrix.h"
 using namespace std;
 
 MenuJuego::MenuJuego()
@@ -23,6 +26,7 @@ void MenuJuego::escogerJugador(){
             if(jugador_escogido!=nullptr){
                 if(!cola_jugadores->exists(jugador_escogido)){
                     cout<< "Jugador escogido: "+ jugador_escogido->getNombreJugador() + "\n";
+                    llenarFichasJugador(jugador_escogido);
                     cola_jugadores->push(jugador_escogido);
                 }
             }
@@ -41,11 +45,15 @@ void MenuJuego::mostrarMenu(){
         cin>>opcion;
         switch(opcion){
         case 1:
+            cout<<"Creando nuevo tablero..."<<endl;
+            tablero = new Matrix();
+            llenarTablero(tablero, MenuPrincipal::dimension_tablero);
             cola_jugadores = new QueueJugador();
             randomQueue = new GenerateRandom();
             colaFichas = randomQueue->fillQueue();
             escogerJugador();
             system("pause");
+            cambioTurno();
             break;
         case 2:
             break;
@@ -83,8 +91,47 @@ void MenuJuego::llenarFichasJugador(Jugador *&jugador){
     }
 }
 
+void MenuJuego::llenarTablero(Matrix *&matriz, int dimension){
+
+
+}
+
 void MenuJuego::cambioTurno(){
-    system("TASKKILL /F /IM Microsoft.Photos.exe");
+    int op;
+    do{
+        system("cls");
+        Jugador *jugador_turno = cola_jugadores->devolverUltimo();
+        cola_jugadores->pop();
+        cout<< "Turno del jugador : " + jugador_turno->getNombreJugador()<<endl;
+        system("TASKKILL /F /IM Microsoft.Photos.exe");
+        do{
+            cout<< "Elija la opcion que desea realizar: "<<endl;
+            cout<< "1. Introducir nueva letra"<<endl;
+            cout<< "2. Mostrar fichas disponibles"<<endl;
+            cout<< "3. Mostrar punteo"<<endl;
+            cout<< "4. Imprimir tablero"<<endl;
+            cout<< "5. Terminar turno"<<endl;
+            cout<< "6. Salir del juego"<<endl;
+            cin>>op;
+            switch(op){
+            case 1:
+                int x=0,y=0;
+                char letra;
+                cout<< "Introzca la posicion en Y: "<<endl;
+                cin>>y;
+                cout<< "Introduzca la posicion en X: "<<endl;
+                cin>>x;
+                cout<<"Introduzca la letra: "<<endl;
+                cin>>letra;
+                break;
+            case 2:
+                break;
+            }
+        }while(op!=5);
+        cola_jugadores->push(jugador_turno);
+        cambioTurno();
+    }while(op!=6);
+
 }
 
 TreeABB* MenuJuego::getJugadores(){
