@@ -8,7 +8,8 @@ class GenerateRandom
         Ficha *ficha;
         ColaFicha *cola;
         GenerateRandom();
-        int generateR();
+        int generateR(int);
+        int generateID(int);
         ColaFicha* fillQueue();
     protected:
 

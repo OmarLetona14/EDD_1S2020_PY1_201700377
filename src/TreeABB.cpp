@@ -2,6 +2,8 @@
 #include <fstream>
 #include "TreeABB.h"
 #include <fstream>
+using namespace std;
+
 TreeABB::TreeABB(){
     //this->root = NULL;
     this->size = 0;
@@ -17,12 +19,10 @@ void TreeABB::insert(NodeABB *&root, Jugador *data){
         root = newNode;
         size++;
     }else{
-        if(data->getNoJugador() < root->getData()->getNoJugador()){
+        if(data->getPrimeraLetra() < root->getData()->getPrimeraLetra()){
             insert(root->left, data);
-            size++;
-        }else if(data->getNoJugador() > root->getData()->getNoJugador()){
+        }else if(data->getPrimeraLetra() > root->getData()->getPrimeraLetra()){
             insert(root->right, data);
-            size++;
         }else{
             cout << "Fallo al ingresar el nodo" <<endl;
             return;
@@ -35,7 +35,7 @@ NodeABB* TreeABB::searchNode(int id, NodeABB *root, NodeABB* tmp){
         return NULL;
     }
     if(tmp == NULL){
-        if(root->getData()->getNoJugador() == id){
+        if(root->getData()->getPrimeraLetra() == id){
             return root;
         }
         tmp = searchNode(id, root->left, tmp);
@@ -44,81 +44,18 @@ NodeABB* TreeABB::searchNode(int id, NodeABB *root, NodeABB* tmp){
     return tmp;
 }
 
-int TreeABB::preOrden(NodeABB *root, int iteratorr, int limit, std::vector<Matrix> &listMatrix){
-    if(iteratorr < limit){
-        if(root == NULL){
-            return iteratorr;
-        }
-        std::cout << root->getData()->getNoJugador();
-//        listMatrix.push_back(GenerateMatrix(root));
-        iteratorr++;
-        if(iteratorr < limit){
-          iteratorr =  preOrden(root->left, iteratorr, limit, listMatrix);
-        }
-        if(iteratorr < limit){
-           iteratorr = preOrden(root->right, iteratorr, limit, listMatrix);
-        }
+NodeABB* TreeABB::searchPlayerByID(int id, NodeABB *root, NodeABB* tmp){
+    if(root == NULL && tmp == NULL){
+        return NULL;
     }
-    return iteratorr;
-}
-
-int TreeABB::inOrden(NodeABB* root, int iteratorr, int limit, std::vector<Matrix> &listMatrix){
-    if(iteratorr < limit){
-        if(root == NULL){
-            return iteratorr;
+    if(tmp == NULL){
+        if(root->getData()->getNoJugador() == id){
+            return root;
         }
-        iteratorr =  inOrden(root->left, iteratorr, limit, listMatrix);
-        if(iteratorr < limit){
-            std::cout << root->getData()->getNoJugador();
-//            listMatrix.push_back(GenerateMatrix(root));
-            iteratorr++;
-        }
-        if(iteratorr < limit){
-           iteratorr = inOrden(root->right, iteratorr, limit, listMatrix);
-        }
+        tmp = searchPlayerByID(id, root->left, tmp);
+        tmp = searchPlayerByID(id, root->right, tmp);
     }
-    return iteratorr;
-}
-
-int TreeABB::PostOrden(NodeABB* root, int iteratorr, int limit, std::vector<Matrix> &listMatrix){
-    if(iteratorr < limit){
-        if(root == NULL){
-            return iteratorr;
-        }
-        iteratorr =  PostOrden(root->left, iteratorr, limit, listMatrix);
-        if(iteratorr < limit){
-           iteratorr = PostOrden(root->right, iteratorr, limit, listMatrix);
-        }
-        if(iteratorr < limit){
-            std::cout << root->getData()->getNoJugador();
-//            listMatrix.push_back(GenerateMatrix(root));
-            iteratorr++;
-        }
-    }
-    return iteratorr;
-}
-void TreeABB::LeafNodes(NodeABB* root){
-    if(root == NULL){
-        return;
-    }
-    if(root->left == NULL && root->right == NULL){
-        std::cout << std::to_string(root->getData()->getNoJugador()) + " ";
-    }
-    LeafNodes(root->getLeft());
-    LeafNodes(root->getRight());
-}
-
-int TreeABB::TreeDepth(NodeABB* root){
-    if(root == NULL){
-        return 0;
-    }
-    int left = TreeDepth(root->getLeft());
-    int right = TreeDepth(root->getRight());
-    if(left <= right){
-        return right + 1;
-    }else{
-        return left + 1;
-    }
+    return tmp;
 }
 
 void TreeABB::ReportPre(NodeABB* root){

@@ -8,6 +8,7 @@ using namespace std;
 class ColaFicha
 {
     public:
+        Ficha* devolverUltima();
         CreateFile* creator;
         int size;
         ColaFicha();

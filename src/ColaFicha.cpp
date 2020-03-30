@@ -38,6 +38,12 @@ void ColaFicha::desplegarCola(){
     }
 }
 
+Ficha* ColaFicha::devolverUltima(){
+    if(primero !=nullptr){
+        return primero->ficha;
+    }return nullptr;
+}
+
 void ColaFicha::pop(){
     NodeFicha *aux = primero;
     if(getSize()==1){

@@ -14,6 +14,8 @@ Jugador::Jugador(int noJugador, std::string nombre_jugador, int primera_letra)
     this->fichas = new DoubleLinkedListFicha();
 }
 
+Jugador::Jugador(){}
+
 int Jugador::getNoJugador(){
     return this->noJugador;
 }

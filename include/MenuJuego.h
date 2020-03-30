@@ -6,11 +6,13 @@
 #include "TreeABB.h"
 #include "NodeABB.h"
 #include "Jugador.h"
+#include "QueueJugador.h"
 #include <iostream>
 using namespace std;
 class MenuJuego
 {
     public:
+        QueueJugador *cola_jugadores;
         NodeABB *raiz;
         ColaFicha* getColaFichas();
         GenerateRandom *randomQueue;
@@ -23,6 +25,9 @@ class MenuJuego
         TreeABB* jugadores;
         TreeABB* getJugadores();
         NodeABB* getRoot();
+        void escogerJugador();
+        void llenarFichasJugador(Jugador*&);
+        void cambioTurno();
     protected:
 
     private:

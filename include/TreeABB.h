@@ -31,6 +31,7 @@ public:
     std::string Branch(NodeABB*,std::string);
     std::string Children(NodeABB*,std::string);
     std::string contenido;
+    NodeABB* searchPlayerByID(int, NodeABB*, NodeABB*);
 };
 
 #endif /* TREEABB_H */

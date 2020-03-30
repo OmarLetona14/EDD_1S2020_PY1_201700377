@@ -10,6 +10,7 @@ class Jugador
     public:
         Jugador(int, std::string, int);
         std::string nombre_jugador;
+        Jugador();
         int puntaje, noJugador, primera_letra;
         SimplyLinkedListScoreboard *puntajes;
         DoubleLinkedListFicha *fichas;

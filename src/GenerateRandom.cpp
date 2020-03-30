@@ -2,13 +2,22 @@
 #include <cstdlib>      // rand, srand
 #include <ctime>
 #include "ColaFicha.h"
+#include <random>
 GenerateRandom::GenerateRandom()
 {
 }
-int GenerateRandom::generateR(){
+int GenerateRandom::generateR(int limite){
     int valor = 0;
-    valor = rand() % 25;
+    valor = rand() % limite;
     return valor;
+}
+
+int GenerateRandom::generateID(int limite){
+    random_device device;
+    mt19937 generador(device());
+    uniform_int_distribution<> distribucion(0, limite+1);
+    int a = distribucion(generador);
+    return a;
 }
 
 ColaFicha* GenerateRandom::fillQueue(){
@@ -17,7 +26,7 @@ ColaFicha* GenerateRandom::fillQueue(){
     this->cola = new ColaFicha();
     cout<<"Generando fichas..."<<endl;
     do{
-        int random_c = 97+generateR();
+        int random_c = 97+generateR(25);
         char letra = char(random_c);
         if(random_c+67 == 164){
             if(ene<1){

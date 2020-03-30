@@ -54,9 +54,11 @@
 		<Unit filename="include/NodeDiccionario.h" />
 		<Unit filename="include/NodeFicha.h" />
 		<Unit filename="include/NodeHeader.h" />
+		<Unit filename="include/NodeJugador.h" />
 		<Unit filename="include/NodeLateral.h" />
 		<Unit filename="include/NodeMatrix.h" />
 		<Unit filename="include/NodeScore.h" />
+		<Unit filename="include/QueueJugador.h" />
 		<Unit filename="include/ReadArchive.h" />
 		<Unit filename="include/Score.h" />
 		<Unit filename="include/SimplyLinkedListScoreboard.h" />
@@ -82,9 +84,11 @@
 		<Unit filename="src/NodeDiccionario.cpp" />
 		<Unit filename="src/NodeFicha.cpp" />
 		<Unit filename="src/NodeHeader.cpp" />
+		<Unit filename="src/NodeJugador.cpp" />
 		<Unit filename="src/NodeLateral.cpp" />
 		<Unit filename="src/NodeMatrix.cpp" />
 		<Unit filename="src/NodeScore.cpp" />
+		<Unit filename="src/QueueJugador.cpp" />
 		<Unit filename="src/ReadArchive.cpp" />
 		<Unit filename="src/Score.cpp" />
 		<Unit filename="src/SimplyLinkedListScoreboard.cpp" />
