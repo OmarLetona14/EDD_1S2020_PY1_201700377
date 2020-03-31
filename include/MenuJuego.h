@@ -14,6 +14,7 @@ using namespace std;
 class MenuJuego
 {
     public:
+        int dime_tablero;
         void llenarTablero(Matrix*&,int);
         Matrix *tablero;
         QueueJugador *cola_jugadores;
@@ -22,7 +23,7 @@ class MenuJuego
         GenerateRandom *randomQueue;
         ColaFicha *colaFichas;
         MenuJuego();
-        void mostrarMenu();
+        void mostrarMenu(int);
         int opcion;
         void nuevoJugador(std::string);
         void insertarJugador();

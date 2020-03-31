@@ -35,8 +35,9 @@ void MenuJuego::escogerJugador(){
     }while(cola_jugadores->getSize()<=1);
 }
 
-void MenuJuego::mostrarMenu(){
+void MenuJuego::mostrarMenu(int dimension){
     do{
+        this->dime_tablero = dimension;
         cout<<" BIENVENIDO AL JUEGO " <<endl;
         cout<<" 1. Nuevo Juego " <<endl;
         cout<<" 2. Mostrar mayores puntajes" <<endl;
@@ -47,7 +48,7 @@ void MenuJuego::mostrarMenu(){
         case 1:
             cout<<"Creando nuevo tablero..."<<endl;
             tablero = new Matrix();
-            llenarTablero(tablero, MenuPrincipal::dimension_tablero);
+            llenarTablero(tablero,dime_tablero );
             cola_jugadores = new QueueJugador();
             randomQueue = new GenerateRandom();
             colaFichas = randomQueue->fillQueue();
@@ -91,13 +92,17 @@ void MenuJuego::llenarFichasJugador(Jugador *&jugador){
     }
 }
 
-void MenuJuego::llenarTablero(Matrix *&matriz, int dimension){
-
+void MenuJuego::llenarTablero(Matrix *&matriz, int d){
+    for(int x = 0;x<d;x++){
+        for(int y =0; y<d; y++){
+            matriz->insert(x, y, nullptr);
+        }
+    }
 
 }
 
 void MenuJuego::cambioTurno(){
-    int op;
+    int op,dimension_x=0,dimension_y=0;;
     do{
         system("cls");
         Jugador *jugador_turno = cola_jugadores->devolverUltimo();
@@ -115,12 +120,12 @@ void MenuJuego::cambioTurno(){
             cin>>op;
             switch(op){
             case 1:
-                int x=0,y=0;
+
                 char letra;
                 cout<< "Introzca la posicion en Y: "<<endl;
-                cin>>y;
+                cin>>dimension_y;
                 cout<< "Introduzca la posicion en X: "<<endl;
-                cin>>x;
+                cin>>dimension_x;
                 cout<<"Introduzca la letra: "<<endl;
                 cin>>letra;
                 break;

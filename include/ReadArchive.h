@@ -13,6 +13,7 @@ class ReadArchive
         void readJSON(std::string);
         DoubleCircularListDiccionario* diccionario;
         int dimension;
+        int getDimension();
     protected:
 
     private:

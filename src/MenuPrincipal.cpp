@@ -22,16 +22,20 @@ void MenuPrincipal::desplegarMenu(){
     cin >> opcion;
         switch(opcion){
         case 1:
+            dimension_tablero = 0;
             cout<< "Por favor ingrese la ruta del archivo que desea leer"<< endl;
             cin >> file_string;
             if(file_string!=""){
                 reader = new ReadArchive(diccionario_palabras);
                 reader->readJSON(file_string);
+                dimension_tablero = reader->getDimension();
                 cout<< "Carga masiva realizada con exito" <<endl;
+                system("pause");
+                system("cls");
             }
             break;
         case 2:
-            nuevo_juego->mostrarMenu();
+            nuevo_juego->mostrarMenu(dimension_tablero);
             break;
         case 3:
              do{

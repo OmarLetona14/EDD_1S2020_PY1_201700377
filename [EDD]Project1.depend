@@ -45,15 +45,19 @@
 	<string>
 	"Ficha.h"
 
-1585365580 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+1585614596 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
 	"Matrix.h"
 	"Ficha.h"
+	<fstream>
+	<iostream>
 
-1585365543 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\matrix.h
+1585544812 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\matrix.h
 	"LateralList.h"
 	"HeaderList.h"
 	<string>
 	"Ficha.h"
+	"CreateFile.h"
+	<iostream>
 
 1585098015 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodeheader.cpp
 	"NodeHeader.h"
@@ -71,27 +75,28 @@
 	<sstream>
 	"Ficha.h"
 
-1585338045 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+1585615161 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
 	"MenuPrincipal.h"
 	<iostream>
 	"ReadArchive.h"
 	"DoubleCircularListDiccionario.h"
 	"MenuJuego.h"
 
-1585283714 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menuprincipal.h
+1585544630 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menuprincipal.h
 	"ReadArchive.h"
 	"DoubleCircularListDiccionario.h"
 	"MenuJuego.h"
 
-1585122523 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\readarchive.cpp
+1585617227 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\readarchive.cpp
 	"ReadArchive.h"
 	<string>
 	"json.hpp"
 	<fstream>
 	<typeinfo>
+	<iostream>
 	"DoubleCircularListDiccionario.h"
 
-1585121262 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\readarchive.h
+1585614579 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\readarchive.h
 	<string>
 	"json.hpp"
 	<fstream>
@@ -337,7 +342,7 @@
 	"NodeFicha.h"
 	"Ficha.h"
 
-1585538690 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
+1585614694 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
 	"ColaFicha.h"
 	"GenerateRandom.h"
 	"MenuPrincipal.h"
@@ -345,6 +350,8 @@
 	"NodeABB.h"
 	"Jugador.h"
 	"QueueJugador.h"
+	"Matrix.h"
+	"NodeMatrix.h"
 	<iostream>
 
 1585536021 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\generaterandom.h
@@ -358,7 +365,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585540370 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585614782 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -366,6 +373,9 @@
 	"NodeABB.h"
 	"Jugador.h"
 	"QueueJugador.h"
+	"Matrix.h"
+	"MenuPrincipal.h"
+	"NodeMatrix.h"
 
 1585198331 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\score.cpp
 	"Score.h"
@@ -438,7 +448,7 @@
 	"Jugador.h"
 	"NodeJugador.h"
 
-1585511754 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\queuejugador.cpp
+1585540388 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\queuejugador.cpp
 	"QueueJugador.h"
 	"Jugador.h"
 	"NodeJugador.h"
