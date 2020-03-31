@@ -11,6 +11,7 @@ class DoubleLinkedListFicha
         NodeFicha *ultimo;
         void insertar(Ficha*);
         NodeFicha* buscarNodo(Ficha*,int);
+        Ficha *getFicha(char);
     protected:
 
     private:

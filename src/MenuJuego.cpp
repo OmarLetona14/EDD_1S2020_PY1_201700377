@@ -8,6 +8,7 @@
 #include "Matrix.h"
 #include "MenuPrincipal.h"
 #include "NodeMatrix.h"
+#include "ColaFicha.h"
 using namespace std;
 
 MenuJuego::MenuJuego()
@@ -37,6 +38,7 @@ void MenuJuego::escogerJugador(){
 
 void MenuJuego::mostrarMenu(int dimension){
     do{
+        std::vector<Matrix> matrix;
         this->dime_tablero = dimension;
         cout<<" BIENVENIDO AL JUEGO " <<endl;
         cout<<" 1. Nuevo Juego " <<endl;
@@ -53,8 +55,9 @@ void MenuJuego::mostrarMenu(int dimension){
             randomQueue = new GenerateRandom();
             colaFichas = randomQueue->fillQueue();
             escogerJugador();
+            tablero->createImage(tablero);
             system("pause");
-            cambioTurno();
+            cambioTurno(tablero);
             break;
         case 2:
             break;
@@ -101,7 +104,7 @@ void MenuJuego::llenarTablero(Matrix *&matriz, int d){
 
 }
 
-void MenuJuego::cambioTurno(){
+void MenuJuego::cambioTurno(Matrix *&matriz){
     int op,dimension_x=0,dimension_y=0;;
     do{
         system("cls");
@@ -110,6 +113,7 @@ void MenuJuego::cambioTurno(){
         cout<< "Turno del jugador : " + jugador_turno->getNombreJugador()<<endl;
         system("TASKKILL /F /IM Microsoft.Photos.exe");
         do{
+            ColaFicha *fichas_turno = new ColaFicha();
             cout<< "Elija la opcion que desea realizar: "<<endl;
             cout<< "1. Introducir nueva letra"<<endl;
             cout<< "2. Mostrar fichas disponibles"<<endl;
@@ -120,7 +124,6 @@ void MenuJuego::cambioTurno(){
             cin>>op;
             switch(op){
             case 1:
-
                 char letra;
                 cout<< "Introzca la posicion en Y: "<<endl;
                 cin>>dimension_y;
@@ -128,13 +131,15 @@ void MenuJuego::cambioTurno(){
                 cin>>dimension_x;
                 cout<<"Introduzca la letra: "<<endl;
                 cin>>letra;
+                introducirLetra(matriz,dimension_x,dimension_y,jugador_turno, letra, fichas_turno);
+                tablero->createImage(tablero);
                 break;
             case 2:
                 break;
             }
         }while(op!=5);
         cola_jugadores->push(jugador_turno);
-        cambioTurno();
+        cambioTurno(matriz);
     }while(op!=6);
 
 }
@@ -149,4 +154,20 @@ ColaFicha* MenuJuego::getColaFichas(){
 
 NodeABB* MenuJuego::getRoot(){
     return this->raiz;
+}
+
+
+void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador, char l, ColaFicha *&cola){
+    try{
+        Ficha *nueva_ficha = jugador->getFichas()->getFicha(l);
+        if(nueva_ficha!=nullptr){
+            matriz->insert(x,y,nueva_ficha);
+            cola->push(nueva_ficha);
+        }else {
+            cout<<"La letra que intenta introducir no se encuentra en sus letras disponibles"<<endl;
+            return;
+        }
+    }catch(exception e){
+        cout<<"Ocurrio un error al intentar introducir la ficha"<<endl;
+    }
 }

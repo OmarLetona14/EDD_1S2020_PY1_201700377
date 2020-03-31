@@ -40,3 +40,19 @@ NodeFicha* DoubleLinkedListFicha::buscarNodo(Ficha *ficha, int posicion){
     }
     return NULL;
 }
+
+Ficha* DoubleLinkedListFicha::getFicha(char letra){
+    NodeFicha *aux = primero;
+    if(aux!=nullptr){
+        while(aux!=nullptr){
+            if(aux->ficha->getLetra() == letra){
+                return aux->ficha;
+            }
+            aux = aux->siguiente;
+        }
+    }return nullptr;
+}
+
+void DoubleLinkedListFicha::createDOT(){
+
+}

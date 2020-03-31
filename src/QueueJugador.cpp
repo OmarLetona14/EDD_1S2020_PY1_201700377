@@ -44,7 +44,6 @@ void QueueJugador::pop(){
     }else{
         primero = primero->siguiente;
     }
-    cout<<"Pop realizado con exito"<<endl;
     delete aux;
 }
 

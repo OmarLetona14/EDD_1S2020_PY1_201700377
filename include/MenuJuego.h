@@ -15,6 +15,7 @@ class MenuJuego
 {
     public:
         int dime_tablero;
+        void introducirLetra(Matrix*&, int, int, Jugador*&,char, ColaFicha*&);
         void llenarTablero(Matrix*&,int);
         Matrix *tablero;
         QueueJugador *cola_jugadores;
@@ -32,7 +33,7 @@ class MenuJuego
         NodeABB* getRoot();
         void escogerJugador();
         void llenarFichasJugador(Jugador*&);
-        void cambioTurno();
+        void cambioTurno(Matrix*&);
     protected:
 
     private:

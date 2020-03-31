@@ -6,10 +6,11 @@
 
 class NodeHeader {
 private:
-    int y;
+
     NodeHeader *next;
     NodeHeader *previous;
 public:
+    int y;
     NodeHeader(int);
     void setY(int);
     void setNext(NodeHeader*);

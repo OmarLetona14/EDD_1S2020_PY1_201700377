@@ -1,6 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
+#include <algorithm>
 #include "LateralList.h"
 #include "HeaderList.h"
 #include <string>
@@ -10,6 +10,7 @@
 using namespace std;
 class Matrix {
 public:
+    std::string ExistsFicha(int, int);
     CreateFile *creator;
     HeaderList header;
     LateralList lateral;
@@ -17,8 +18,8 @@ public:
     void insert(int, int, Ficha*);
     int MaximunHeader();
     int MaximunLateral();
-    Ficha* ExistFicha(int, int);
-    void createImage(Matrix*, std::string);
+    Ficha* getFicha(int, int);
+    void createImage(Matrix*);
 };
 
 #endif /* MATRIX_H */

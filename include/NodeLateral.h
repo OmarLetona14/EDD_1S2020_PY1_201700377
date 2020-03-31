@@ -6,10 +6,11 @@
 
 class NodeLateral {
 private:
-    int x;
+
     NodeLateral *down;
     NodeLateral *up;
 public:
+    int x;
     NodeLateral(int);
     void setDown(NodeLateral*);
     void setUp(NodeLateral*);
