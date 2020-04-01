@@ -35,7 +35,7 @@ void MenuPrincipal::desplegarMenu(){
             }
             break;
         case 2:
-            nuevo_juego->mostrarMenu(dimension_tablero);
+            nuevo_juego->mostrarMenu(dimension_tablero, reader->getDiccionario(), reader->getCoordenadas());
             break;
         case 3:
              do{

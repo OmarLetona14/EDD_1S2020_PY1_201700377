@@ -14,9 +14,15 @@ class Ficha
         int getNoFicha();
         int getPuntaje();
         char getLetra();
+        bool getDoble();
+        bool getTriple();
         void setNoFicha(int);
         void setPuntaje(int);
         void setLetra(char);
+        void setDoble(bool);
+        void setTriple(bool);
+        bool doble;
+        bool triple;
     protected:
 
     private:

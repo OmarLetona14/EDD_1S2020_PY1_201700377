@@ -10,6 +10,7 @@
 using namespace std;
 class Matrix {
 public:
+    int nodeSize;
     std::string ExistsFicha(int, int);
     CreateFile *creator;
     HeaderList header;
@@ -20,6 +21,7 @@ public:
     int MaximunLateral();
     Ficha* getFicha(int, int);
     void createImage(Matrix*);
+    int getNodeSize();
 };
 
 #endif /* MATRIX_H */

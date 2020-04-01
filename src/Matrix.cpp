@@ -10,6 +10,7 @@
 using namespace std;
 
 Matrix::Matrix(){
+    this->nodeSize = 0;
 }
 
 void Matrix::insert(int x, int y, Ficha *ficha){
@@ -25,6 +26,7 @@ void Matrix::insert(int x, int y, Ficha *ficha){
     tmpL = lateral.searchLateral(x);
     tmpH->column.insert(ficha, x, y);
     tmpL->row.insert(ficha, x, y);
+    nodeSize++;
 }
 
 std::string Matrix::ExistsFicha(int x, int y){
@@ -76,12 +78,17 @@ Ficha* Matrix::getFicha(int x, int y){
     return nullptr;
 }
 
+int Matrix::getNodeSize(){
+    return this->nodeSize;
+}
+
 void Matrix::createImage(Matrix *matrix){
     creator = new CreateFile();
     std::string contenido;
     ofstream fs("tablero.dot");
     contenido += "digraph tablero{ \n";
     contenido += "node [shape= record] \n";
+    if(matrix){}
     contenido += "mt [label= \" matriz\" group = 0 ];\n ";
     NodeLateral *auxLateral = matrix->lateral.first;
     while(auxLateral!=nullptr){
@@ -89,7 +96,7 @@ void Matrix::createImage(Matrix *matrix){
         auxLateral = auxLateral->getDown();
     }
     auxLateral = matrix->lateral.first;
-    contenido+= "mt -> x0 \n";
+    contenido+= "mt -> x" + std::to_string(auxLateral->getX()) + "\n" ;
     while(auxLateral!=nullptr){
         if(auxLateral->getDown()!=nullptr){
             contenido += "x" + std::to_string(auxLateral->getX()) + " -> x" + std::to_string(auxLateral->getDown()->getX()) + "\n";
@@ -105,13 +112,14 @@ void Matrix::createImage(Matrix *matrix){
         auxHeader = auxHeader->getNext();
     }
     auxHeader = matrix->header.first;
-    contenido += "mt -> y0 \n";
+    contenido += "mt -> y" + std::to_string(auxHeader->getY()) + "\n";
     while(auxHeader!=nullptr){
         if(auxHeader->getNext()!=nullptr){
             contenido += "y"+ std::to_string(auxHeader->getY())+ " -> y" + std::to_string(auxHeader->getNext()->getY()) + " \n";
         }
         auxHeader = auxHeader->getNext();
     }
+
     contenido += "{rank = same; mt; ";
     auxHeader = matrix->header.first;
     while(auxHeader!=nullptr){
@@ -126,12 +134,16 @@ void Matrix::createImage(Matrix *matrix){
             if(auxMatrix->getFicha()!=nullptr){
                 std::string letra(1, auxMatrix->getFicha()->getLetra());
                 int grupo = auxMatrix->y+1;
-                contenido += "x"+ std::to_string(auxMatrix->x) + "y" + std::to_string(auxMatrix->y) + " [label = \" " + letra +
+                if(auxMatrix->getFicha()->getDoble()){
+                    contenido += "x"+ std::to_string(auxMatrix->x) + "y" + std::to_string(auxMatrix->y) + " [label = \" " + letra +
+                 "\", style=filled, fillcolor=blue , group = " + std::to_string(grupo) + " ]; \n";
+                }else if(auxMatrix->getFicha()->getTriple()){
+                    contenido += "x"+ std::to_string(auxMatrix->x) + "y" + std::to_string(auxMatrix->y) + " [label = \" " + letra +
+                 "\", style=filled,fillcolor=red, group = " + std::to_string(grupo) + " ]; \n";
+                }else{
+                    contenido += "x"+ std::to_string(auxMatrix->x) + "y" + std::to_string(auxMatrix->y) + " [label = \" " + letra +
                  "\" group = " + std::to_string(grupo) + " ]; \n";
-            }else{
-                int grupo = auxMatrix->y+1;
-                contenido += "x"+ std::to_string(auxMatrix->x) + "y" + std::to_string(auxMatrix->y) +
-                 " [label = \" null \" group = " + std::to_string(grupo) + " ]; \n";
+                }
             }
             auxMatrix = auxMatrix->getNext();
         }

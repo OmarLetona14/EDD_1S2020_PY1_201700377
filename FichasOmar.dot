@@ -1,0 +1,2 @@
+digraph FichasOmar{ 
+node [ fontsize = 16 shape = record]  " j" [ label = " j" shape = record ]; " j" ->  " ¤" " ¤" [ label = " ¤" shape = record ]; " ¤" ->  " t" " ¤" ->  " j" " t" [ label = " t" shape = record ]; " t" ->  " y" " t" ->  " ¤" " y" [ label = " y" shape = record ]; " y" ->  " t"}

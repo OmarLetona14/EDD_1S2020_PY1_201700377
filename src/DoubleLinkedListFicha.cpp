@@ -1,6 +1,10 @@
 #include "DoubleLinkedListFicha.h"
 #include "NodeFicha.h"
 #include "Ficha.h"
+#include <iostream>
+#include "Jugador.h"
+#include <fstream>
+using namespace std;
 DoubleLinkedListFicha::DoubleLinkedListFicha()
 {
     this->size = 0;
@@ -53,6 +57,58 @@ Ficha* DoubleLinkedListFicha::getFicha(char letra){
     }return nullptr;
 }
 
-void DoubleLinkedListFicha::createDOT(){
+void DoubleLinkedListFicha::createDOT(std::string filename, std::string nombre_jugador){
+    creator = new CreateFile();
+    std::string contenido;
+    ofstream fs(filename);
+    NodeFicha* aux = primero;
+    contenido += "digraph Fichas" +  nombre_jugador + "{ \n";
+    contenido += "node [ fontsize = 16 shape = record] ";
+    do{
+    std::string cont = "";
+            std::string letra(1, aux->ficha->getLetra());
+            cont += " \" " + letra + "\" [ label = \" "+ letra + "\" shape = record ];";
+            if(aux->siguiente!=nullptr){
+                std::string letra_siguiente( 1,aux->siguiente->ficha->getLetra());
+                cont +=  " \" " + letra + "\"" + " -> " +" \" " + letra_siguiente + "\"";
+            }
+            if(aux->anterior!=nullptr){
+                std::string letra_anterior(1, aux->anterior->ficha->getLetra());
+                cont +=  " \" " + letra + "\"" + " -> " +" \" " + letra_anterior + "\"";
+            }
+            contenido.append(cont);
+        aux = aux->siguiente;
+    }while(aux!=nullptr);
+    contenido += "}";
+    fs << contenido;
+    fs.close();
+    creator->create(filename, "diccionario.png");
+}
+
+
+void DoubleLinkedListFicha::eliminarNodo(Ficha *ficha_eliminar){
+    NodeFicha *aux = primero;
+    NodeFicha *ant = nullptr;
+    if(primero!=nullptr){
+        while(aux!=nullptr){
+            if(aux->ficha == ficha_eliminar){
+                if(aux==primero){
+                    primero = primero->siguiente;
+                    primero->anterior = nullptr;
+                }else if(aux==ultimo){
+                    ant->siguiente  = nullptr;
+                    ultimo = ant;
+                }else{
+                    ant->siguiente = aux->siguiente;
+                    aux->siguiente->anterior = ant;
+                }
+                return;
+            }
+            ant = aux;
+            aux = aux->siguiente;
+        }
+    }else{
+        cout<< "La lista se encuentra vacia"<<endl;
+    }
 
 }

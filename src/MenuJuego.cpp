@@ -9,6 +9,8 @@
 #include "MenuPrincipal.h"
 #include "NodeMatrix.h"
 #include "ColaFicha.h"
+#include "DoubleCircularListDiccionario.h"
+#include "SimplyLinkedListCoordenada.h"
 using namespace std;
 
 MenuJuego::MenuJuego()
@@ -36,7 +38,9 @@ void MenuJuego::escogerJugador(){
     }while(cola_jugadores->getSize()<=1);
 }
 
-void MenuJuego::mostrarMenu(int dimension){
+void MenuJuego::mostrarMenu(int dimension, DoubleCircularListDiccionario *diccionario, SimplyLinkedListCoordenada *coordenadas){
+    this->_diccionario = diccionario;
+    this->_coordenadas = coordenadas;
     do{
         std::vector<Matrix> matrix;
         this->dime_tablero = dimension;
@@ -50,12 +54,10 @@ void MenuJuego::mostrarMenu(int dimension){
         case 1:
             cout<<"Creando nuevo tablero..."<<endl;
             tablero = new Matrix();
-            llenarTablero(tablero,dime_tablero );
             cola_jugadores = new QueueJugador();
             randomQueue = new GenerateRandom();
             colaFichas = randomQueue->fillQueue();
             escogerJugador();
-            tablero->createImage(tablero);
             system("pause");
             cambioTurno(tablero);
             break;
@@ -105,13 +107,18 @@ void MenuJuego::llenarTablero(Matrix *&matriz, int d){
 }
 
 void MenuJuego::cambioTurno(Matrix *&matriz){
+    system("TASKKILL /F /IM Microsoft.Photos.exe");
     int op,dimension_x=0,dimension_y=0;;
     do{
         system("cls");
         Jugador *jugador_turno = cola_jugadores->devolverUltimo();
         cola_jugadores->pop();
         cout<< "Turno del jugador : " + jugador_turno->getNombreJugador()<<endl;
-        system("TASKKILL /F /IM Microsoft.Photos.exe");
+        if(matriz!=nullptr && matriz->getNodeSize()>0){
+             matriz->createImage(matriz);
+        }
+        std::string nombre_doc = "Fichas" + jugador_turno->getNombreJugador() + ".dot";
+        jugador_turno->fichas->createDOT(nombre_doc, jugador_turno->getNombreJugador());
         do{
             ColaFicha *fichas_turno = new ColaFicha();
             cout<< "Elija la opcion que desea realizar: "<<endl;
@@ -132,9 +139,20 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
                 cout<<"Introduzca la letra: "<<endl;
                 cin>>letra;
                 introducirLetra(matriz,dimension_x,dimension_y,jugador_turno, letra, fichas_turno);
+                system("TASKKILL /F /IM Microsoft.Photos.exe");
                 tablero->createImage(tablero);
+                jugador_turno->getFichas()->createDOT(nombre_doc, jugador_turno->getNombreJugador());
                 break;
             case 2:
+                if(jugador_turno!=nullptr){
+                    jugador_turno->getFichas()->createDOT(nombre_doc, jugador_turno->getNombreJugador());
+                }
+                break;
+            case 3:
+                cout<< "El punteo del jugador es: " + std::to_string(jugador_turno->getPuntaje())<<endl;
+                break;
+            case 4:
+                tablero->createImage(tablero);
                 break;
             }
         }while(op!=5);
@@ -159,15 +177,35 @@ NodeABB* MenuJuego::getRoot(){
 
 void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador, char l, ColaFicha *&cola){
     try{
-        Ficha *nueva_ficha = jugador->getFichas()->getFicha(l);
-        if(nueva_ficha!=nullptr){
-            matriz->insert(x,y,nueva_ficha);
-            cola->push(nueva_ficha);
-        }else {
-            cout<<"La letra que intenta introducir no se encuentra en sus letras disponibles"<<endl;
-            return;
+        if(x<dime_tablero && y<dime_tablero){
+          Ficha *nueva_ficha = jugador->getFichas()->getFicha(l);
+            if(nueva_ficha!=nullptr){
+                isTriple(x,y,nueva_ficha);
+                isDouble(x,y,nueva_ficha);
+                matriz->insert(x,y,nueva_ficha);
+                cola->push(nueva_ficha);
+                jugador->getFichas()->eliminarNodo(nueva_ficha);
+            }else {
+                cout<<"La letra que intenta introducir no se encuentra en sus letras disponibles"<<endl;
+                return;
+            }
+        }else{
+            cout<<"La coordenada que intenta introducir no es valida"<<endl;
         }
+
     }catch(exception e){
         cout<<"Ocurrio un error al intentar introducir la ficha"<<endl;
+    }
+}
+
+void MenuJuego::isTriple(int x, int y, Ficha *&ficha){
+    if(_coordenadas->isTriple(x,y)){
+        ficha->setTriple(true);
+    }
+}
+
+void MenuJuego::isDouble(int x, int y, Ficha *&ficha){
+    if(_coordenadas->isDouble(x,y)){
+        ficha->setDoble(true);
     }
 }

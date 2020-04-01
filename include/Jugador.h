@@ -4,16 +4,18 @@
 #include "ColaFicha.h"
 #include "SimplyLinkedListScoreboard.h"
 #include "DoubleLinkedListFicha.h"
+
 using namespace std;
 class Jugador
 {
     public:
+        DoubleLinkedListFicha *fichas;
         Jugador(int, std::string, int);
         std::string nombre_jugador;
         Jugador();
         int puntaje, noJugador, primera_letra;
         SimplyLinkedListScoreboard *puntajes;
-        DoubleLinkedListFicha *fichas;
+
         int getNoJugador();
         int getPuntaje();
         std::string getNombreJugador();

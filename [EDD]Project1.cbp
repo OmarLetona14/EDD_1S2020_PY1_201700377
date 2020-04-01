@@ -51,6 +51,7 @@
 		<Unit filename="include/MenuJuego.h" />
 		<Unit filename="include/MenuPrincipal.h" />
 		<Unit filename="include/NodeABB.h" />
+		<Unit filename="include/NodeCoordenada.h" />
 		<Unit filename="include/NodeDiccionario.h" />
 		<Unit filename="include/NodeFicha.h" />
 		<Unit filename="include/NodeHeader.h" />
@@ -61,6 +62,7 @@
 		<Unit filename="include/QueueJugador.h" />
 		<Unit filename="include/ReadArchive.h" />
 		<Unit filename="include/Score.h" />
+		<Unit filename="include/SimplyLinkedListCoordenada.h" />
 		<Unit filename="include/SimplyLinkedListScoreboard.h" />
 		<Unit filename="include/TreeABB.h" />
 		<Unit filename="main.cpp" />
@@ -81,6 +83,7 @@
 		<Unit filename="src/MenuJuego.cpp" />
 		<Unit filename="src/MenuPrincipal.cpp" />
 		<Unit filename="src/NodeABB.cpp" />
+		<Unit filename="src/NodeCoordenada.cpp" />
 		<Unit filename="src/NodeDiccionario.cpp" />
 		<Unit filename="src/NodeFicha.cpp" />
 		<Unit filename="src/NodeHeader.cpp" />
@@ -91,6 +94,7 @@
 		<Unit filename="src/QueueJugador.cpp" />
 		<Unit filename="src/ReadArchive.cpp" />
 		<Unit filename="src/Score.cpp" />
+		<Unit filename="src/SimplyLinkedListCoordenada.cpp" />
 		<Unit filename="src/SimplyLinkedListScoreboard.cpp" />
 		<Unit filename="src/TreeABB.cpp" />
 		<Extensions>

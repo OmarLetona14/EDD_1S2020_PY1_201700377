@@ -1,0 +1,2 @@
+digraph FichasCarlos{ 
+node [ fontsize = 16 shape = record]  " d" [ label = " d" shape = record ]; " d" ->  " m" " m" [ label = " m" shape = record ]; " m" ->  " o" " m" ->  " d" " o" [ label = " o" shape = record ]; " o" ->  " f" " o" ->  " m" " f" [ label = " f" shape = record ]; " f" ->  " g" " f" ->  " o" " g" [ label = " g" shape = record ]; " g" ->  " f"}

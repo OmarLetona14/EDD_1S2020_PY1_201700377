@@ -9,11 +9,16 @@
 #include "QueueJugador.h"
 #include "Matrix.h"
 #include "NodeMatrix.h"
+#include "SimplyLinkedListCoordenada.h"
+#include "DoubleCircularListDiccionario.h"
 #include <iostream>
 using namespace std;
 class MenuJuego
 {
     public:
+        int punteo_jugador;
+        DoubleCircularListDiccionario *_diccionario;
+        SimplyLinkedListCoordenada *_coordenadas;
         int dime_tablero;
         void introducirLetra(Matrix*&, int, int, Jugador*&,char, ColaFicha*&);
         void llenarTablero(Matrix*&,int);
@@ -24,7 +29,7 @@ class MenuJuego
         GenerateRandom *randomQueue;
         ColaFicha *colaFichas;
         MenuJuego();
-        void mostrarMenu(int);
+        void mostrarMenu(int, DoubleCircularListDiccionario*, SimplyLinkedListCoordenada* );
         int opcion;
         void nuevoJugador(std::string);
         void insertarJugador();
@@ -34,6 +39,8 @@ class MenuJuego
         void escogerJugador();
         void llenarFichasJugador(Jugador*&);
         void cambioTurno(Matrix*&);
+        void isDouble(int, int, Ficha*&);
+        void isTriple(int, int, Ficha*&);
     protected:
 
     private:

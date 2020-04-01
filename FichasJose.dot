@@ -1,0 +1,2 @@
+digraph FichasJose{ 
+node [ fontsize = 16 shape = record]  " r" [ label = " r" shape = record ]; " r" ->  " ¤" " ¤" [ label = " ¤" shape = record ]; " ¤" ->  " a" " ¤" ->  " r" " a" [ label = " a" shape = record ]; " a" ->  " t" " a" ->  " ¤" " t" [ label = " t" shape = record ]; " t" ->  " y" " t" ->  " a" " y" [ label = " y" shape = record ]; " y" ->  " t"}
