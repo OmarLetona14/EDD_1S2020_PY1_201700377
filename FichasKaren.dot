@@ -1,2 +1,10 @@
 digraph FichasKaren{ 
-node [ fontsize = 16 shape = record]  " r" [ label = " r" shape = record ]; " r" ->  " j" " r" ->  " q" " j" [ label = " j" shape = record ]; " j" ->  " ¤" " j" ->  " r" " ¤" [ label = " ¤" shape = record ]; " ¤" ->  " a" " ¤" ->  " j" " a" [ label = " a" shape = record ]; " a" ->  " t" " a" ->  " ¤" " t" [ label = " t" shape = record ]; " t" ->  " y" " t" ->  " a"}
+node [ fontsize = 16 shape = record] 
+ " d8" [ label = " d" shape = record ]; 
+ " d8" ->  " u13"  
+ " u13" [ label = " u" shape = record ]; 
+ " u13" ->  " g14"  
+ " u13" ->  " d8" 
+ " g14" [ label = " g" shape = record ]; 
+ " g14" ->  " u13" 
+}

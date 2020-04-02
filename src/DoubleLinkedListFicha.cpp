@@ -63,18 +63,20 @@ void DoubleLinkedListFicha::createDOT(std::string filename, std::string nombre_j
     ofstream fs(filename);
     NodeFicha* aux = primero;
     contenido += "digraph Fichas" +  nombre_jugador + "{ \n";
-    contenido += "node [ fontsize = 16 shape = record] ";
+    contenido += "node [ fontsize = 16 shape = record] \n";
     do{
     std::string cont = "";
             std::string letra(1, aux->ficha->getLetra());
-            cont += " \" " + letra + "\" [ label = \" "+ letra + "\" shape = record ];";
+            cont += " \" " + letra + std::to_string(aux->ficha->getNoFicha()) + "\" [ label = \" "+ letra + "\" shape = record ]; \n";
             if(aux->siguiente!=nullptr){
                 std::string letra_siguiente( 1,aux->siguiente->ficha->getLetra());
-                cont +=  " \" " + letra + "\"" + " -> " +" \" " + letra_siguiente + "\"";
+                cont +=  " \" " + letra + std::to_string(aux->ficha->getNoFicha()) + "\"" + " -> " +" \" " +
+                letra_siguiente + std::to_string(aux->siguiente->ficha->getNoFicha()) + "\"  \n";
             }
             if(aux->anterior!=nullptr){
                 std::string letra_anterior(1, aux->anterior->ficha->getLetra());
-                cont +=  " \" " + letra + "\"" + " -> " +" \" " + letra_anterior + "\"";
+                cont +=  " \" " + letra + std::to_string(aux->ficha->getNoFicha()) + "\"" + " -> " +" \" " +
+                letra_anterior+ std::to_string(aux->anterior->ficha->getNoFicha()) + "\" \n";
             }
             contenido.append(cont);
         aux = aux->siguiente;

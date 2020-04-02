@@ -18,6 +18,7 @@ MenuJuego::MenuJuego()
     this->jugadores = new TreeABB();
     this->colaFichas = new ColaFicha();
     this->raiz = nullptr;
+    this->palabras_matrix = new DoubleCircularListDiccionario();
 }
 
 void MenuJuego::escogerJugador(){
@@ -41,6 +42,7 @@ void MenuJuego::escogerJugador(){
 void MenuJuego::mostrarMenu(int dimension, DoubleCircularListDiccionario *diccionario, SimplyLinkedListCoordenada *coordenadas){
     this->_diccionario = diccionario;
     this->_coordenadas = coordenadas;
+    this->comprobadas = new DoubleCircularListDiccionario();
     do{
         std::vector<Matrix> matrix;
         this->dime_tablero = dimension;
@@ -62,6 +64,7 @@ void MenuJuego::mostrarMenu(int dimension, DoubleCircularListDiccionario *diccio
             cambioTurno(tablero);
             break;
         case 2:
+            obtenerMejores();
             break;
         case 3:
             insertarJugador();
@@ -107,27 +110,29 @@ void MenuJuego::llenarTablero(Matrix *&matriz, int d){
 }
 
 void MenuJuego::cambioTurno(Matrix *&matriz){
+    this->fichas_introducidas = new ColaFicha();
     system("TASKKILL /F /IM Microsoft.Photos.exe");
-    int op,dimension_x=0,dimension_y=0;;
+    int op,dimension_x=0,dimension_y=0;
     do{
         system("cls");
         Jugador *jugador_turno = cola_jugadores->devolverUltimo();
         cola_jugadores->pop();
         cout<< "Turno del jugador : " + jugador_turno->getNombreJugador()<<endl;
+        cout<< "Puntuacion: " + std::to_string(jugador_turno->getPuntaje()) <<endl;
         if(matriz!=nullptr && matriz->getNodeSize()>0){
              matriz->createImage(matriz);
         }
         std::string nombre_doc = "Fichas" + jugador_turno->getNombreJugador() + ".dot";
         jugador_turno->fichas->createDOT(nombre_doc, jugador_turno->getNombreJugador());
         do{
-            ColaFicha *fichas_turno = new ColaFicha();
             cout<< "Elija la opcion que desea realizar: "<<endl;
             cout<< "1. Introducir nueva letra"<<endl;
-            cout<< "2. Mostrar fichas disponibles"<<endl;
-            cout<< "3. Mostrar punteo"<<endl;
-            cout<< "4. Imprimir tablero"<<endl;
-            cout<< "5. Terminar turno"<<endl;
-            cout<< "6. Salir del juego"<<endl;
+            cout<< "2. Intercambiar fichas "<<endl;
+            cout<< "3. Mostrar fichas disponibles"<<endl;
+            cout<< "4. Mostrar punteo"<<endl;
+            cout<< "5. Imprimir tablero"<<endl;
+            cout<< "6. Terminar turno"<<endl;
+            cout<< "7. Salir del juego"<<endl;
             cin>>op;
             switch(op){
             case 1:
@@ -138,27 +143,64 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
                 cin>>dimension_x;
                 cout<<"Introduzca la letra: "<<endl;
                 cin>>letra;
-                introducirLetra(matriz,dimension_x,dimension_y,jugador_turno, letra, fichas_turno);
+                introducirLetra(matriz,dimension_x,dimension_y,jugador_turno, letra);
                 system("TASKKILL /F /IM Microsoft.Photos.exe");
                 tablero->createImage(tablero);
                 jugador_turno->getFichas()->createDOT(nombre_doc, jugador_turno->getNombreJugador());
                 break;
             case 2:
+                menuReemplazo(jugador_turno);
+
+                break;
+            case 3:
                 if(jugador_turno!=nullptr){
                     jugador_turno->getFichas()->createDOT(nombre_doc, jugador_turno->getNombreJugador());
                 }
                 break;
-            case 3:
+            case 4:
                 cout<< "El punteo del jugador es: " + std::to_string(jugador_turno->getPuntaje())<<endl;
                 break;
-            case 4:
+            case 5:
                 tablero->createImage(tablero);
                 break;
+            case 6:
+                palabras_matrix = realizarRecorrido(matriz);
+                if(palabras_matrix->getSize()>0){
+                    cout<<"Se reconocio la palabra: " + palabras_matrix->primero->word;
+                    int puntuacion = 0;
+                    NodeFicha *aux = fichas_introducidas->primero;
+                    while(aux!=nullptr){
+                        if(aux->ficha !=nullptr){
+                            if(aux->ficha->getDoble() ==true){
+                                 puntuacion+=aux->ficha->getPuntaje()*2;
+                            }else if(aux->ficha->getTriple() ==true){
+                                 puntuacion+=aux->ficha->getPuntaje()*3;
+                            }else{
+                                 puntuacion+=aux->ficha->getPuntaje();
+                            }
+                        }
+                    }
+                    jugador_turno->setPuntaje(puntuacion);
+                    cout<< "Puntuacion del jugador " + jugador_turno->getNombreJugador()
+                    + ": " + std::to_string(jugador_turno->getPuntaje())<<endl;
+                    int llenado = 7- jugador_turno->getFichas()->size;
+                    for(int i = 0; i<llenado;i++){
+                        jugador_turno->getFichas()->insertar(colaFichas->devolverUltima());
+                        colaFichas->pop();
+                    }
+                }else{
+                    cout<< "No se encontro ninguna palabra valida! "<<endl;
+
+                }
+                palabras_matrix->desplegarLista();
+                system("pause");
+
+                break;
             }
-        }while(op!=5);
+        }while(op!=6);
         cola_jugadores->push(jugador_turno);
         cambioTurno(matriz);
-    }while(op!=6);
+    }while(op!=7);
 
 }
 
@@ -175,7 +217,7 @@ NodeABB* MenuJuego::getRoot(){
 }
 
 
-void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador, char l, ColaFicha *&cola){
+void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador, char l){
     try{
         if(x<dime_tablero && y<dime_tablero){
           Ficha *nueva_ficha = jugador->getFichas()->getFicha(l);
@@ -183,7 +225,7 @@ void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador
                 isTriple(x,y,nueva_ficha);
                 isDouble(x,y,nueva_ficha);
                 matriz->insert(x,y,nueva_ficha);
-                cola->push(nueva_ficha);
+                fichas_introducidas->push(nueva_ficha);
                 jugador->getFichas()->eliminarNodo(nueva_ficha);
             }else {
                 cout<<"La letra que intenta introducir no se encuentra en sus letras disponibles"<<endl;
@@ -204,8 +246,138 @@ void MenuJuego::isTriple(int x, int y, Ficha *&ficha){
     }
 }
 
-void MenuJuego::isDouble(int x, int y, Ficha *&ficha){
+void MenuJuego::isDouble(int  x, int y, Ficha *&ficha){
     if(_coordenadas->isDouble(x,y)){
         ficha->setDoble(true);
     }
+}
+
+
+void MenuJuego::reemplazarTodas(Jugador *&jugador){
+    try{
+        jugador->setFichas(new DoubleLinkedListFicha());
+        for(int i=0; i<7;i++){
+            jugador->getFichas()->insertar(colaFichas->devolverUltima());
+            colaFichas->pop();
+        }
+    }catch(exception e){
+        cout<<"Ocurrio un error al intentar reemplazar las fichas"<<endl;
+    }
+
+}
+
+void MenuJuego::reemplazarUna(Jugador*& j, Ficha* f){
+    try{
+        j->getFichas()->insertar(colaFichas->devolverUltima());
+        j->getFichas()->eliminarNodo(f);
+        colaFichas->pop();
+        colaFichas->push(f);
+    }catch(exception e){
+        cout<<"Ocurrio un problema al intentar reemplazar la ficha "<<endl;
+    }
+}
+
+void MenuJuego::menuReemplazo(Jugador*& jugador_turno){
+    int op;
+    do{
+    char le;
+    cout<< "Elija una opcion: "<<endl;
+                cout<< "1. Reemplazar todas"<<endl;
+                cout<< "2. Reemplazar una"<<endl;
+                cout<< "3. Salir"<<endl;
+                cin>>op;
+                switch(op){
+                case 1:
+                    reemplazarTodas(jugador_turno);
+                    break;
+                case 2:
+                    cout<<"Escriba la palabra que desea reemplazar"<<endl;
+                    cin>> le;
+                    Ficha *ficha_reem = jugador_turno->getFichas()->getFicha(le);
+                    if(ficha_reem!=nullptr){
+                        reemplazarUna(jugador_turno, ficha_reem);
+                    }else{
+                        cout<<"La ficha que intenta reemplazar no se encuentra dentro de sus fichas disponibles"<<endl;
+                    }
+
+                    break;
+                }
+                system("pause");
+                system("cls");
+                system("TASKKILL /F /IM Microsoft.Photos.exe");
+                jugador_turno->getFichas()->createDOT("Fichas" + jugador_turno->getNombreJugador(), jugador_turno->getNombreJugador());
+                if(tablero->getNodeSize()>0){
+                    tablero->createImage(tablero);
+                }
+
+    }while(op!=3);
+}
+
+
+
+DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
+    DoubleCircularListDiccionario *palabras_dicc = new DoubleCircularListDiccionario();
+    //Recorrido de las columnas
+    NodeHeader *auxHeader = t_b->header.first;
+    while(auxHeader!=nullptr){
+        NodeMatrix *auxMatrix = auxHeader->column.first;
+        std::string palabra;
+        while(auxMatrix!=nullptr){
+            if(auxMatrix->getFicha()!=nullptr){
+                palabra+= auxMatrix->getFicha()->getLetra();
+                cout<<palabra<<endl;
+                if(_diccionario->perteneceDiccionario(palabra) && !comprobadas->perteneceDiccionario(palabra)){
+                    palabras_dicc->insertarNodo(palabra);
+                }
+            }
+            auxMatrix = auxMatrix->getDown();
+        }
+        auxHeader = auxHeader->getNext();
+    }
+    //Recorrido por filas
+    NodeLateral *auxLateral = t_b->lateral.first;
+    while(auxLateral!=nullptr){
+        NodeMatrix * auxMatrix = auxLateral->row.first;
+        std::string palabra;
+        while(auxMatrix!=nullptr){
+            if(auxMatrix->getFicha()!=nullptr){
+                 palabra += auxMatrix->getFicha()->getLetra();
+                cout<<palabra<<endl;
+                if(_diccionario->perteneceDiccionario(palabra) && !comprobadas->perteneceDiccionario(palabra)){
+                    palabras_dicc->insertarNodo(palabra);
+                }
+            }
+            auxMatrix=auxMatrix->getNext();
+        }
+        auxLateral = auxLateral->getDown();
+    }
+    return palabras_dicc;
+}
+
+bool MenuJuego::comprobarPalabra(DoubleCircularListDiccionario *diccionario, std::string subcadena){
+    NodeDiccionario *aux = diccionario->primero;
+    do{
+        int n = subcadena.length();
+        char char_array[n+1];
+        strcpy(char_array, subcadena.c_str());
+
+        if(strstr(aux->word.c_str(), subcadena.c_str())){
+
+            return true;
+        }
+        aux = aux->siguiente;
+    }while(aux!=diccionario->primero);
+    return false;
+}
+
+
+int MenuJuego::verificar( char *cadena, char *subcadena )
+{
+   char *tmp = cadena;
+   char *pdest;
+
+   pdest = strstr( tmp, subcadena );
+   if( pdest ) return 1;
+
+   return 0;
 }

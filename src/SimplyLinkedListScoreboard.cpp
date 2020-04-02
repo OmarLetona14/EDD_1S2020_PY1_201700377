@@ -1,6 +1,6 @@
 #include "SimplyLinkedListScoreboard.h"
 #include "NodeScore.h"
-
+#include <fstream>
 SimplyLinkedListScoreboard::SimplyLinkedListScoreboard()
 {
     this->size = 0;
@@ -75,4 +75,32 @@ SimplyLinkedListScoreboard* SimplyLinkedListScoreboard::devolverPrimerosCinco(){
 
 int SimplyLinkedListScoreboard::getSize(){
     return this->size;
+}
+
+
+void SimplyLinkedListScoreboard::createDOT(std::string nombre_jugador){
+    std::string filename = "Puntajes" + nombre_jugador;
+    creator = new CreateFile();
+    std::string contenido;
+    ofstream fs(filename + ".dot");
+    NodeScore* aux = primero;
+    contenido += "digraph " + filename + "{ \n";
+    contenido += "node [ fontsize = 16 shape = record] \n";
+    do{
+    std::string cont = "";
+            cont += " \" " + aux->score->getNombreJugador() + std::to_string(aux->score->getPuntaje()) +
+             "\" [ label = \" "+ std::to_string(aux->score->getPuntaje()) + "\" shape = record ]; \n";
+            if(aux->siguiente!=nullptr){
+                cont +=  " \" " + aux->score->getNombreJugador() + std::to_string(aux->score->getPuntaje()) + "\"" + " -> " +" \" " +
+                aux->siguiente->score->getNombreJugador() +
+                std::to_string(aux->siguiente->score->getPuntaje()) + "\"  \n";
+            }
+        contenido.append(cont);
+        aux = aux->siguiente;
+    }while(aux!=nullptr);
+    contenido += "}";
+    fs << contenido;
+    fs.close();
+    creator->create(filename + ".dot", filename + ".png");
+
 }

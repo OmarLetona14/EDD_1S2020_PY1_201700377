@@ -1,0 +1,22 @@
+digraph FichasOmar{ 
+node [ fontsize = 16 shape = record] 
+ " c15" [ label = " c" shape = record ]; 
+ " c15" ->  " l16"  
+ " l16" [ label = " l" shape = record ]; 
+ " l16" ->  " u17"  
+ " l16" ->  " c15" 
+ " u17" [ label = " u" shape = record ]; 
+ " u17" ->  " r18"  
+ " u17" ->  " l16" 
+ " r18" [ label = " r" shape = record ]; 
+ " r18" ->  " c19"  
+ " r18" ->  " u17" 
+ " c19" [ label = " c" shape = record ]; 
+ " c19" ->  " l20"  
+ " c19" ->  " r18" 
+ " l20" [ label = " l" shape = record ]; 
+ " l20" ->  " e21"  
+ " l20" ->  " c19" 
+ " e21" [ label = " e" shape = record ]; 
+ " e21" ->  " l20" 
+}

@@ -22,6 +22,7 @@ public:
     Ficha* getFicha(int, int);
     void createImage(Matrix*);
     int getNodeSize();
+    void eliminarNodo(Ficha*&, Matrix*&);
 };
 
 #endif /* MATRIX_H */

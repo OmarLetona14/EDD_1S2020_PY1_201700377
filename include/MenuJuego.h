@@ -11,16 +11,19 @@
 #include "NodeMatrix.h"
 #include "SimplyLinkedListCoordenada.h"
 #include "DoubleCircularListDiccionario.h"
+#include "DoubleLinkedListFicha.h"
 #include <iostream>
 using namespace std;
 class MenuJuego
 {
     public:
+        DoubleCircularListDiccionario *comprobadas;
+        DoubleCircularListDiccionario *palabras_matrix;
         int punteo_jugador;
         DoubleCircularListDiccionario *_diccionario;
         SimplyLinkedListCoordenada *_coordenadas;
         int dime_tablero;
-        void introducirLetra(Matrix*&, int, int, Jugador*&,char, ColaFicha*&);
+        void introducirLetra(Matrix*&, int, int, Jugador*&,char);
         void llenarTablero(Matrix*&,int);
         Matrix *tablero;
         QueueJugador *cola_jugadores;
@@ -41,6 +44,15 @@ class MenuJuego
         void cambioTurno(Matrix*&);
         void isDouble(int, int, Ficha*&);
         void isTriple(int, int, Ficha*&);
+        void reemplazarTodas(Jugador*&);
+        void reemplazarUna(Jugador*&, Ficha*);
+        void menuReemplazo(Jugador*&);
+        int verificar(char*,char*);
+        bool comprobarPalabra(DoubleCircularListDiccionario*, std::string);
+        DoubleCircularListDiccionario *realizarRecorrido(Matrix*);
+        ColaFicha *fichas_introducidas;
+        void terminarTurno();
+        void obtenerMejores();
     protected:
 
     private:

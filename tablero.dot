@@ -3,21 +3,36 @@ node [shape= record]
 mt [label= " matriz" group = 0 ];
  x0[label = " 0" group = 0 ];
 x1[label = " 1" group = 0 ];
+x2[label = " 2" group = 0 ];
+x3[label = " 3" group = 0 ];
 mt -> x0
 x0 -> x1
+x1 -> x2
+x2 -> x3
 y0[label = " 0" group = 1 ]; 
-y1[label = " 1" group = 2 ]; 
 mt -> y0
-y0 -> y1 
-{rank = same; mt; y0;y1;}; 
-x0y0 [label = " j", style=filled, fillcolor=blue , group = 1 ]; 
-x1y1 [label = " q", style=filled,fillcolor=red, group = 2 ]; 
-x0 -> x0y0
-x1 -> x1y1
+{rank = same; mt; y0;}; 
+x0y0 [label = " f", style=filled, fillcolor=blue , group = 1 ]; 
+x1y0 [label = " o" group = 1 ]; 
+x2y0 [label = " m" group = 1 ]; 
+x3y0 [label = " i" group = 1 ]; 
+x0y0-> x1y0 
+ x1y0-> x2y0 
+ x1y0-> x0y0 
+ x2y0-> x3y0 
+ x2y0-> x1y0 
+ x3y0-> x2y0 
+ x0 -> x0y0
+x1 -> x1y0
+x2 -> x2y0
+x3 -> x3y0
 y0 -> x0y0 
- y1 -> x1y1 
  { rank = same; x0; x0y0; 
 }
-{ rank = same; x1; x1y1; 
+{ rank = same; x1; x1y0; 
+}
+{ rank = same; x2; x2y0; 
+}
+{ rank = same; x3; x3y0; 
 }
 }

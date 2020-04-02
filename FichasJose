@@ -1,0 +1,22 @@
+digraph FichasJose{ 
+node [ fontsize = 16 shape = record] 
+ " e21" [ label = " e" shape = record ]; 
+ " e21" ->  " d23"  
+ " d23" [ label = " d" shape = record ]; 
+ " d23" ->  " r24"  
+ " d23" ->  " e21" 
+ " r24" [ label = " r" shape = record ]; 
+ " r24" ->  " v26"  
+ " r24" ->  " d23" 
+ " v26" [ label = " v" shape = record ]; 
+ " v26" ->  " s27"  
+ " v26" ->  " r24" 
+ " s27" [ label = " s" shape = record ]; 
+ " s27" ->  " u28"  
+ " s27" ->  " v26" 
+ " u28" [ label = " u" shape = record ]; 
+ " u28" ->  " r33"  
+ " u28" ->  " s27" 
+ " r33" [ label = " r" shape = record ]; 
+ " r33" ->  " u28" 
+}

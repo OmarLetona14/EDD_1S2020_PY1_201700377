@@ -2,9 +2,12 @@
 #define SIMPLYLINKEDLISTSCOREBOARD_H
 #include "NodeScore.h"
 #include "Score.h"
+#include "CreateFile.h"
 class SimplyLinkedListScoreboard
 {
+
     public:
+        CreateFile *creator;
         SimplyLinkedListScoreboard();
         void insertar(Score*);
         NodeScore *primero;
@@ -14,6 +17,7 @@ class SimplyLinkedListScoreboard
         int getSize();
         SimplyLinkedListScoreboard* devolverPrimerosCinco();
         Score* devolverMejorPuntaje();
+        void createDOT(std::string);
     protected:
 
     private:

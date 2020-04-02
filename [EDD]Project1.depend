@@ -45,7 +45,7 @@
 	<string>
 	"Ficha.h"
 
-1585707431 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+1585707822 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
 	"Matrix.h"
 	"Ficha.h"
 	<fstream>
@@ -279,14 +279,14 @@
 	<limits>
 	<type_traits>
 
-1585268441 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
+1585794465 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
 	"DoubleCircularListDiccionario.h"
 	<iostream>
 	"NodeDiccionario.h"
 	"CreateFile.h"
 	<fstream>
 
-1585268482 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
+1585791903 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
 	"NodeDiccionario.h"
 	"CreateFile.h"
 	<iostream>
@@ -350,7 +350,7 @@
 	"NodeFicha.h"
 	"Ficha.h"
 
-1585707171 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
+1585803969 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
 	"ColaFicha.h"
 	"GenerateRandom.h"
 	"MenuPrincipal.h"
@@ -362,6 +362,7 @@
 	"NodeMatrix.h"
 	"SimplyLinkedListCoordenada.h"
 	"DoubleCircularListDiccionario.h"
+	"DoubleLinkedListFicha.h"
 	<iostream>
 
 1585536021 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\generaterandom.h
@@ -375,7 +376,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585707171 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585793530 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -405,7 +406,7 @@
 	"NodeScore.h"
 	"Score.h"
 
-1585703224 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
+1585720806 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
 	"DoubleLinkedListFicha.h"
 	"NodeFicha.h"
 	"Ficha.h"

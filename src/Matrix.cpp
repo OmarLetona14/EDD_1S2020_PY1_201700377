@@ -44,6 +44,23 @@ std::string Matrix::ExistsFicha(int x, int y){
     return "";
 }
 
+void Matrix::eliminarNodo(Ficha *&ficha, Matrix *&matrix){
+    NodeHeader *auxHeader = matrix->header.first;
+    while(auxHeader!=nullptr){
+            NodeMatrix *auxMatrix = auxHeader->column.first;
+            while(auxMatrix!=nullptr){
+                if(ficha==auxMatrix->getFicha()){
+                    auxMatrix->getDown()->setUp(nullptr);
+                    auxMatrix->getUp()->setDown(nullptr);
+                    auxMatrix->getPrevious()->setNext(nullptr);
+                    auxMatrix->getNext()->setPrevious(nullptr);
+                }
+                auxMatrix = auxMatrix->getDown();
+            }
+        auxHeader=auxHeader->getNext();
+    }
+}
+
 int Matrix::MaximunHeader(){
     int m = 0;
     NodeHeader *tmp = header.first;

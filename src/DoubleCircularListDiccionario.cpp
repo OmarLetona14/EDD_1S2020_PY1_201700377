@@ -67,3 +67,15 @@ void DoubleCircularListDiccionario::createDOT(std::string filename){
 
 }
 
+bool DoubleCircularListDiccionario::perteneceDiccionario(std::string palabra){
+    NodeDiccionario *aux = primero;
+    if(primero!=nullptr){
+        do{
+            if(aux->word==palabra){
+                return true;
+            }
+            aux = aux->siguiente;
+        }while(aux!=primero);
+    }
+    return false;
+}

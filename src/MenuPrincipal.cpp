@@ -35,7 +35,11 @@ void MenuPrincipal::desplegarMenu(){
             }
             break;
         case 2:
-            nuevo_juego->mostrarMenu(dimension_tablero, reader->getDiccionario(), reader->getCoordenadas());
+            if(reader!=nullptr){
+                nuevo_juego->mostrarMenu(dimension_tablero, reader->getDiccionario(), reader->getCoordenadas());
+            }else{
+                cout<<"Debe leer un archivo de entrada antes de jugar "<<endl;
+            }
             break;
         case 3:
              do{
@@ -48,9 +52,7 @@ void MenuPrincipal::desplegarMenu(){
                 cout<<"6. Recorrido postorden del arbol binario de busqueda"<<endl;
                 cout<<"7. Historial de puntajes de un jugador"<<endl;
                 cout<<"8. Scoreboard general"<<endl;
-                cout<<"9. Tablero"<<endl;
-                cout<<"10. Fichas de los jugadores"<<endl;
-                cout<<"11. Salir"<<endl;
+                cout<<"9. Salir"<<endl;
                 cin>>opcion;
                 switch(opcion){
                 case 1:

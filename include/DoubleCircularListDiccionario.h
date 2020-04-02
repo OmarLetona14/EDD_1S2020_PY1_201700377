@@ -17,6 +17,7 @@ class DoubleCircularListDiccionario
         NodeDiccionario* primero;
         void createDOT(std::string);
         CreateFile *creator;
+        bool perteneceDiccionario(std::string);
     protected:
 
     private:
