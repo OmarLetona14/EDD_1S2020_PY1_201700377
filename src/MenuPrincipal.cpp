@@ -39,6 +39,7 @@ void MenuPrincipal::desplegarMenu(){
                 nuevo_juego->mostrarMenu(dimension_tablero, reader->getDiccionario(), reader->getCoordenadas());
             }else{
                 cout<<"Debe leer un archivo de entrada antes de jugar "<<endl;
+                system("pause");
             }
             break;
         case 3:
@@ -78,6 +79,11 @@ void MenuPrincipal::desplegarMenu(){
                     nuevo_juego->getJugadores()->createDOT("JugadoresPostOrden.dot","postorder", nuevo_juego->getRoot());
                     break;
                 }
+                case 7:
+                    break;
+                case 8:
+                    nuevo_juego->obtenerMejores();
+                    break;
                 system("pause");
                 system("cls");
             }while(opcion!=11);

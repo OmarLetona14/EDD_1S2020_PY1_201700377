@@ -93,6 +93,21 @@ void MenuJuego::insertarJugador(){
 
 }
 
+void MenuJuego::obtenerMejores(){
+    system("cls");
+    cout<< "Mejores puntajes del juego "<<endl;
+    jugadores->obtainBest(raiz);
+    NodeScore *aux = jugadores->getMejores()->primero;
+    while(aux!=nullptr){
+        if(aux->score!=nullptr){
+            cout<< "Jugador: " + aux->score->getNombreJugador() + " Puntaje: "+
+            std::to_string(aux->score->getPuntaje()) <<endl;
+        }
+        aux = aux->siguiente;
+    }
+    jugadores->getMejores()->createDOT("");
+}
+
 void MenuJuego::llenarFichasJugador(Jugador *&jugador){
     for(int i= 0; i<7;i++){
         jugador->getFichas()->insertar(colaFichas->devolverUltima());
@@ -197,6 +212,19 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
 
                 break;
             }
+            case 7:
+                system("TASKKILL /F /IM Microsoft.Photos.exe");
+                Score *nuevo = new Score(jugador_turno->getNombreJugador(), jugador_turno->getPuntaje());
+                jugador_turno->getPuntajes()->insertar();
+                nuevo = new Score(cola_jugadores->devolverUltimo()->getNombreJugador(),cola_jugadores->devolverUltimo()->getPuntaje());
+                cola_jugadores->devolverUltimo()->getPuntajes()->insertar(cola_jugadores->devolverUltimo()->getPuntaje());
+                cout<<"          JUEGO TERMINADO!          "<<endl;
+                if(jugador_turno->getPuntaje()>cola_jugadores->devolverUltimo()->getPuntaje()){
+                    cout<< "El ganador es: " + jugador_turno->getNombreJugador()<<endl;
+                }else{
+                    cout<<"El ganador es: " + cola_jugadores->devolverUltimo()->getNombreJugador()<<endl;
+                }
+                break;
         }while(op!=6);
         cola_jugadores->push(jugador_turno);
         cambioTurno(matriz);
@@ -368,16 +396,4 @@ bool MenuJuego::comprobarPalabra(DoubleCircularListDiccionario *diccionario, std
         aux = aux->siguiente;
     }while(aux!=diccionario->primero);
     return false;
-}
-
-
-int MenuJuego::verificar( char *cadena, char *subcadena )
-{
-   char *tmp = cadena;
-   char *pdest;
-
-   pdest = strstr( tmp, subcadena );
-   if( pdest ) return 1;
-
-   return 0;
 }

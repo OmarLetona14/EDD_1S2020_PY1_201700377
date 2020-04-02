@@ -2,11 +2,14 @@
 #include <fstream>
 #include "TreeABB.h"
 #include <fstream>
+#include "SimplyLinkedListScoreboard.h"
+#include "Score.h"
 using namespace std;
 
 TreeABB::TreeABB(){
     //this->root = NULL;
     this->size = 0;
+    this->mejores = new SimplyLinkedListScoreboard();
 }
 
 int TreeABB::getSize(){
@@ -57,6 +60,21 @@ NodeABB* TreeABB::searchPlayerByID(int id, NodeABB *root, NodeABB* tmp){
     }
     return tmp;
 }
+
+void TreeABB::obtainBest(NodeABB *root){
+    if(root == NULL){
+        return;
+    }
+    else{
+        if(root->getData()!=nullptr){
+            mejores->insertar(root->getData()->getPuntajes()->devolverMejorPuntaje());
+        }
+        obtainBest(root->left);
+        obtainBest(root->right);
+    }
+}
+
+
 
 void TreeABB::ReportPre(NodeABB* root){
     if(root == NULL){
@@ -166,4 +184,8 @@ void TreeABB::createDOT(std::string filename, std::string type, NodeABB *raiz){
     fs.close();
     creator->create(filename, "diccionario.png");
     iteracion =0;
+}
+
+SimplyLinkedListScoreboard * TreeABB::getMejores(){
+    return this->mejores;
 }

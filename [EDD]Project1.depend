@@ -45,7 +45,7 @@
 	<string>
 	"Ficha.h"
 
-1585707822 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+1585804248 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
 	"Matrix.h"
 	"Ficha.h"
 	<fstream>
@@ -56,7 +56,7 @@
 	"NodeLateral.h"
 	"CreateFile.h"
 
-1585700166 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\matrix.h
+1585804152 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\matrix.h
 	<algorithm>
 	"LateralList.h"
 	"HeaderList.h"
@@ -81,7 +81,7 @@
 	<sstream>
 	"Ficha.h"
 
-1585706214 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+1585805313 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
 	"MenuPrincipal.h"
 	<iostream>
 	"ReadArchive.h"
@@ -350,7 +350,7 @@
 	"NodeFicha.h"
 	"Ficha.h"
 
-1585803969 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
+1585805299 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\menujuego.h
 	"ColaFicha.h"
 	"GenerateRandom.h"
 	"MenuPrincipal.h"
@@ -376,7 +376,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585793530 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585805346 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -398,13 +398,15 @@
 1585198362 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\score.h
 	<iostream>
 
-1585264961 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
+1585804362 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
 	"SimplyLinkedListScoreboard.h"
 	"NodeScore.h"
+	<fstream>
 
-1585264935 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\simplylinkedlistscoreboard.h
+1585804293 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\simplylinkedlistscoreboard.h
 	"NodeScore.h"
 	"Score.h"
+	"CreateFile.h"
 
 1585720806 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
 	"DoubleLinkedListFicha.h"
@@ -432,30 +434,33 @@
 1585256217 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodescore.h
 	"Score.h"
 
-1585537314 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\treeabb.h
+1585804880 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\treeabb.h
 	"NodeABB.h"
 	"Matrix.h"
 	<vector>
 	<iterator>
 	<iostream>
+	"SimplyLinkedListScoreboard.h"
 	"CreateFile.h"
 
 1585257515 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodeabb.h
 	"Jugador.h"
 	<cstddef>
 
-1585257501 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodeabb.cpp
+1585805276 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodeabb.cpp
 	"NodeABB.h"
 	"Jugador.h"
 
 1585256217 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodescore.cpp
 	"NodeScore.h"
 
-1585537284 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\treeabb.cpp
+1585805411 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\treeabb.cpp
 	<ostream>
 	<fstream>
 	"TreeABB.h"
 	<fstream>
+	"SimplyLinkedListScoreboard.h"
+	"Score.h"
 
 1585511713 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodejugador.cpp
 	"NodeJugador.h"

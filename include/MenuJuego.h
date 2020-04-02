@@ -17,6 +17,7 @@ using namespace std;
 class MenuJuego
 {
     public:
+        void obtenerMejores();
         DoubleCircularListDiccionario *comprobadas;
         DoubleCircularListDiccionario *palabras_matrix;
         int punteo_jugador;
@@ -52,7 +53,6 @@ class MenuJuego
         DoubleCircularListDiccionario *realizarRecorrido(Matrix*);
         ColaFicha *fichas_introducidas;
         void terminarTurno();
-        void obtenerMejores();
     protected:
 
     private:

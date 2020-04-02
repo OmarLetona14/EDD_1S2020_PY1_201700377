@@ -5,9 +5,13 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include "SimplyLinkedListScoreboard.h"
 #include "CreateFile.h"
 class TreeABB {
 public:
+    SimplyLinkedListScoreboard *mejores;
+    SimplyLinkedListScoreboard *getMejores();
+    void obtainBest(NodeABB*);
     int iteracion=0, size;
     CreateFile *creator;
     TreeABB();
