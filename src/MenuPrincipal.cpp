@@ -19,7 +19,8 @@ void MenuPrincipal::desplegarMenu(){
     cout << "2. Juego" << endl;
     cout << "3. Reportes" << endl;
     cout << "4. Salir" <<endl;
-    cin >> opcion;
+    cin>>opcion;
+    try{
         switch(opcion){
         case 1:
             dimension_tablero = 0;
@@ -29,7 +30,6 @@ void MenuPrincipal::desplegarMenu(){
                 reader = new ReadArchive(diccionario_palabras);
                 reader->readJSON(file_string);
                 dimension_tablero = reader->getDimension();
-                cout<< "Carga masiva realizada con exito" <<endl;
                 system("pause");
                 system("cls");
             }
@@ -54,7 +54,12 @@ void MenuPrincipal::desplegarMenu(){
                 cout<<"7. Historial de puntajes de un jugador"<<endl;
                 cout<<"8. Scoreboard general"<<endl;
                 cout<<"9. Salir"<<endl;
-                cin>>opcion;
+                try{cin>>opcion;}catch(exception e){
+                    system("cls");
+                    cout<<"Debe introducir un numero "<<endl;
+                    system("pause");
+                    opcion = 10;
+                }
                 switch(opcion){
                 case 1:
                     if(diccionario_palabras->getSize()!=0){
@@ -64,19 +69,41 @@ void MenuPrincipal::desplegarMenu(){
                     }
                     break;
                 case 2:
-                    nuevo_juego->getColaFichas()->generateDOT("colaFichas.dot");
+                    if(nuevo_juego->getColaFichas()!=nullptr){
+                        nuevo_juego->getColaFichas()->generateDOT("colaFichas.dot");
+                    }else{
+                        cout<<"Aun no se han cargado fichas! "<<endl;
+                    }
                     break;
                 case 3:
-                    nuevo_juego->getJugadores()->GraphABB(nuevo_juego->getRoot());
+                    if(nuevo_juego->getJugadores()!=nullptr){
+                        nuevo_juego->getJugadores()->GraphABB(nuevo_juego->getRoot());
+                    }else {
+                        cout<< "Aun no se han introducido jugadores! "<<endl;
+                    }
+
                     break;
                 case 4:
-                    nuevo_juego->getJugadores()->createDOT("JugadoresPreOrden.dot","preorder", nuevo_juego->getRoot());
+                    if(nuevo_juego->getJugadores()!=nullptr){
+                        nuevo_juego->getJugadores()->createDOT("JugadoresPreOrden.dot","preorder", nuevo_juego->getRoot());
+                    }else {
+                        cout<< "Aun no se han introducido jugadores! "<<endl;
+                    }
                     break;
                 case 5:
-                    nuevo_juego->getJugadores()->createDOT("JugadoresInOrden.dot","inorder", nuevo_juego->getRoot());
+                    if(nuevo_juego->getJugadores()!=nullptr){
+                        nuevo_juego->getJugadores()->createDOT("JugadoresInOrden.dot","inorder", nuevo_juego->getRoot());
+                    }else {
+                        cout<< "Aun no se han introducido jugadores! "<<endl;
+                    }
                     break;
                 case 6:
-                    nuevo_juego->getJugadores()->createDOT("JugadoresPostOrden.dot","postorder", nuevo_juego->getRoot());
+                    if(nuevo_juego->getJugadores()!=nullptr){
+                        nuevo_juego->getJugadores()->createDOT("JugadoresPostOrden.dot","postorder", nuevo_juego->getRoot());
+                    }else {
+                        cout<< "Aun no se han introducido jugadores! "<<endl;
+                    }
+
                     break;
                 }
                 case 7:
@@ -89,6 +116,13 @@ void MenuPrincipal::desplegarMenu(){
             }while(opcion!=11);
             break;
         }
+    }catch(exception e){
+                    system("cls");
+                    cout<<"Debe introducir un numero "<<endl;
+                    system("pause");
+                    opcion = 10;
+                }
+
         system("cls");
     }while(opcion!=4);
 

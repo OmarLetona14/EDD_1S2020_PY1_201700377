@@ -18,6 +18,8 @@ class DoubleCircularListDiccionario
         void createDOT(std::string);
         CreateFile *creator;
         bool perteneceDiccionario(std::string);
+        bool exists(std::string);
+        bool subCadenaDiccionario(std::string, std::string);
     protected:
 
     private:

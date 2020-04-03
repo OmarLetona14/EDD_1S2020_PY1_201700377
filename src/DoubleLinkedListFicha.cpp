@@ -25,6 +25,11 @@ void DoubleLinkedListFicha::insertar(Ficha* ficha){
         nuevo->anterior = ultimo;
         ultimo =nuevo;
     }
+    size++;
+}
+
+int DoubleLinkedListFicha::getSize(){
+    return this->size;
 }
 
 NodeFicha* DoubleLinkedListFicha::buscarNodo(Ficha *ficha, int posicion){

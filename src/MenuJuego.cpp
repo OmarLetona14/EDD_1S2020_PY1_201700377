@@ -54,17 +54,24 @@ void MenuJuego::mostrarMenu(int dimension, DoubleCircularListDiccionario *diccio
         cin>>opcion;
         switch(opcion){
         case 1:
-            cout<<"Creando nuevo tablero..."<<endl;
-            tablero = new Matrix();
-            cola_jugadores = new QueueJugador();
-            randomQueue = new GenerateRandom();
-            colaFichas = randomQueue->fillQueue();
-            escogerJugador();
-            system("pause");
-            cambioTurno(tablero);
+            if(jugadores!=nullptr && jugadores->getSize()>1){
+                cout<<"Creando nuevo tablero..."<<endl;
+                tablero = new Matrix();
+                this->comprobadas = new DoubleCircularListDiccionario();
+                cola_jugadores = new QueueJugador();
+                randomQueue = new GenerateRandom();
+                colaFichas = randomQueue->fillQueue();
+                escogerJugador();
+                system("pause");
+                cambioTurno(tablero);
+            }else {
+                cout<<"Debe ingresar al menos dos jugadores para poder jugar! "<<endl;
+            }
             break;
         case 2:
-            obtenerMejores();
+            if(jugadores!=nullptr && jugadores->getSize()>0){
+                obtenerMejores();
+            }
             break;
         case 3:
             insertarJugador();
@@ -125,10 +132,12 @@ void MenuJuego::llenarTablero(Matrix *&matriz, int d){
 }
 
 void MenuJuego::cambioTurno(Matrix *&matriz){
-    this->fichas_introducidas = new ColaFicha();
-    system("TASKKILL /F /IM Microsoft.Photos.exe");
+
     int op,dimension_x=0,dimension_y=0;
-    do{
+
+        NodeDiccionario *auxDiccionario;
+        this->fichas_introducidas = new ColaFicha();
+        system("TASKKILL /F /IM Microsoft.Photos.exe");
         system("cls");
         Jugador *jugador_turno = cola_jugadores->devolverUltimo();
         cola_jugadores->pop();
@@ -180,8 +189,8 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
                 break;
             case 6:
                 palabras_matrix = realizarRecorrido(matriz);
-                if(palabras_matrix->getSize()>0){
-                    cout<<"Se reconocio la palabra: " + palabras_matrix->primero->word;
+                if(palabras_matrix->getSize()>0 && !comprobadas->exists(palabras_matrix->ultimo->word)){
+                    cout<<"Se reconocio la palabra: " + palabras_matrix->primero->word<<endl;
                     int puntuacion = 0;
                     NodeFicha *aux = fichas_introducidas->primero;
                     while(aux!=nullptr){
@@ -194,42 +203,57 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
                                  puntuacion+=aux->ficha->getPuntaje();
                             }
                         }
+                        aux = aux->siguiente;
                     }
                     jugador_turno->setPuntaje(puntuacion);
                     cout<< "Puntuacion del jugador " + jugador_turno->getNombreJugador()
                     + ": " + std::to_string(jugador_turno->getPuntaje())<<endl;
-                    int llenado = 7- jugador_turno->getFichas()->size;
+                    int llenado = 7- jugador_turno->getFichas()->getSize();
                     for(int i = 0; i<llenado;i++){
                         jugador_turno->getFichas()->insertar(colaFichas->devolverUltima());
                         colaFichas->pop();
                     }
+                    if(palabras_matrix->primero !=nullptr){
+                        auxDiccionario = palabras_matrix->primero;
+                        do{
+                            if(!comprobadas->exists(auxDiccionario->word)){
+                                comprobadas->insertarNodo(auxDiccionario->word);
+                            }
+                            auxDiccionario = auxDiccionario->siguiente;
+                        }while(auxDiccionario!=palabras_matrix->primero);
+                    }
                 }else{
                     cout<< "No se encontro ninguna palabra valida! "<<endl;
-
+                    NodeFicha *auxFicha = fichas_introducidas->primero;
+                    while(auxFicha!=nullptr){
+                         jugador_turno->getFichas()->insertar(auxFicha->ficha);
+                         auxFicha = auxFicha->siguiente;
+                    }
                 }
-                palabras_matrix->desplegarLista();
                 system("pause");
-
                 break;
-            }
-            case 7:
+                case 7:
                 system("TASKKILL /F /IM Microsoft.Photos.exe");
-                Score *nuevo = new Score(jugador_turno->getNombreJugador(), jugador_turno->getPuntaje());
-                jugador_turno->getPuntajes()->insertar();
-                nuevo = new Score(cola_jugadores->devolverUltimo()->getNombreJugador(),cola_jugadores->devolverUltimo()->getPuntaje());
-                cola_jugadores->devolverUltimo()->getPuntajes()->insertar(cola_jugadores->devolverUltimo()->getPuntaje());
-                cout<<"          JUEGO TERMINADO!          "<<endl;
+                jugador_turno->getPuntajes()->insertar(new Score(jugador_turno->getNombreJugador(), jugador_turno->getPuntaje()));
+                cola_jugadores->devolverUltimo()->getPuntajes()->insertar(new Score(cola_jugadores->devolverUltimo()->getNombreJugador(),
+                                                                                    cola_jugadores->devolverUltimo()->getPuntaje()));
+                cout<<"* * * * * *     JUEGO TERMINADO! * * * * *     "<<endl;
                 if(jugador_turno->getPuntaje()>cola_jugadores->devolverUltimo()->getPuntaje()){
                     cout<< "El ganador es: " + jugador_turno->getNombreJugador()<<endl;
-                }else{
+                }else if(jugador_turno->getPuntaje()<cola_jugadores->devolverUltimo()->getPuntaje()){
                     cout<<"El ganador es: " + cola_jugadores->devolverUltimo()->getNombreJugador()<<endl;
+                }else{
+                    cout<< "Ha sido un empate! "<<endl;
                 }
+                system("pause");
                 break;
-        }while(op!=6);
-        cola_jugadores->push(jugador_turno);
-        cambioTurno(matriz);
-    }while(op!=7);
-
+                break;
+            }
+        }while(op!=6 && op!=7);
+        if(op!=7){
+            cola_jugadores->push(jugador_turno);
+            cambioTurno(matriz);
+        }
 }
 
 TreeABB* MenuJuego::getJugadores(){
@@ -353,10 +377,14 @@ DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
         while(auxMatrix!=nullptr){
             if(auxMatrix->getFicha()!=nullptr){
                 palabra+= auxMatrix->getFicha()->getLetra();
-                cout<<palabra<<endl;
-                if(_diccionario->perteneceDiccionario(palabra) && !comprobadas->perteneceDiccionario(palabra)){
-                    palabras_dicc->insertarNodo(palabra);
-                }
+                NodeDiccionario *auxDiccionario = _diccionario->primero;
+                do{
+                        if(_diccionario->subCadenaDiccionario(auxDiccionario->word, palabra)
+                            && !comprobadas->perteneceDiccionario(palabra) && _diccionario->perteneceDiccionario(palabra)){
+                            palabras_dicc->insertarNodo(palabra);
+                        }
+                    auxDiccionario = auxDiccionario->siguiente;
+                }while(auxDiccionario!=_diccionario->primero);
             }
             auxMatrix = auxMatrix->getDown();
         }
@@ -370,10 +398,14 @@ DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
         while(auxMatrix!=nullptr){
             if(auxMatrix->getFicha()!=nullptr){
                  palabra += auxMatrix->getFicha()->getLetra();
-                cout<<palabra<<endl;
-                if(_diccionario->perteneceDiccionario(palabra) && !comprobadas->perteneceDiccionario(palabra)){
-                    palabras_dicc->insertarNodo(palabra);
-                }
+                NodeDiccionario *auxDiccionario = _diccionario->primero;
+                do{
+                        if(_diccionario->subCadenaDiccionario(auxDiccionario->word, palabra)
+                            && !comprobadas->perteneceDiccionario(palabra) && _diccionario->perteneceDiccionario(palabra)){
+                            palabras_dicc->insertarNodo(palabra);
+                        }
+                    auxDiccionario = auxDiccionario->siguiente;
+                }while(auxDiccionario!=_diccionario->primero);
             }
             auxMatrix=auxMatrix->getNext();
         }

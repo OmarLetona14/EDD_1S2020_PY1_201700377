@@ -36,6 +36,7 @@ void ReadArchive::readJSON(std::string filename){
             coordenadas->insertar(cor);
         }
         dimension =  j.at("dimension").get<int>();
+        cout<< "Archivo cargado correctamente! "<<endl;
     }catch(exception e){
         cout<< "Ocurrio un error al leer el archivo"<<endl;
     }

@@ -3,6 +3,7 @@
 #include "NodeDiccionario.h"
 #include "CreateFile.h"
 #include <fstream>
+#include <string.h>
 using namespace std;
 
 DoubleCircularListDiccionario::DoubleCircularListDiccionario()
@@ -26,7 +27,6 @@ void DoubleCircularListDiccionario::insertarNodo(std::string palabra){
         primero->anterior = ultimo;
     }
     size++;
-    cout<< "Nodo ingresador correctamente" <<endl;
 }
 
 int DoubleCircularListDiccionario::getSize(){
@@ -40,9 +40,21 @@ void DoubleCircularListDiccionario::desplegarLista(){
             aux = aux->siguiente;
             cout<< aux->word <<endl;
         }while(aux!=primero);
-    }else{
-        cout<<"La lista se encuentra vacia";
     }
+}
+
+bool DoubleCircularListDiccionario::exists(std::string palabra_buscar){
+    NodeDiccionario *aux = primero;
+    if(primero!=nullptr){
+        do{
+            if(aux->word == palabra_buscar){
+                return true;
+            }
+            aux = aux->siguiente;
+        }
+        while(aux!=primero);
+    }
+    return false;
 }
 
 void DoubleCircularListDiccionario::createDOT(std::string filename){
@@ -78,4 +90,10 @@ bool DoubleCircularListDiccionario::perteneceDiccionario(std::string palabra){
         }while(aux!=primero);
     }
     return false;
+}
+
+bool DoubleCircularListDiccionario::subCadenaDiccionario(std::string palabra, std::string subcadena){
+    if(strstr(palabra.c_str(), subcadena.c_str())){
+        return true;
+    }return false;
 }

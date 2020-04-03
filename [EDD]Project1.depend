@@ -81,7 +81,7 @@
 	<sstream>
 	"Ficha.h"
 
-1585805313 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
+1585879383 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menuprincipal.cpp
 	"MenuPrincipal.h"
 	<iostream>
 	"ReadArchive.h"
@@ -93,7 +93,7 @@
 	"DoubleCircularListDiccionario.h"
 	"MenuJuego.h"
 
-1585706214 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\readarchive.cpp
+1585879008 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\readarchive.cpp
 	"ReadArchive.h"
 	<string>
 	"json.hpp"
@@ -279,14 +279,15 @@
 	<limits>
 	<type_traits>
 
-1585794465 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
+1585886343 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublecircularlistdiccionario.cpp
 	"DoubleCircularListDiccionario.h"
 	<iostream>
 	"NodeDiccionario.h"
 	"CreateFile.h"
 	<fstream>
+	<string.h>
 
-1585791903 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
+1585886097 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublecircularlistdiccionario.h
 	"NodeDiccionario.h"
 	"CreateFile.h"
 	<iostream>
@@ -305,7 +306,7 @@
 1585121085 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\coordenada.h
 	<iostream>
 
-1585125859 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\createfile.cpp
+1585877117 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\createfile.cpp
 	"CreateFile.h"
 	<iostream>
 	<fstream>
@@ -376,7 +377,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585805346 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585888091 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -408,7 +409,7 @@
 	"Score.h"
 	"CreateFile.h"
 
-1585720806 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
+1585877745 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
 	"DoubleLinkedListFicha.h"
 	"NodeFicha.h"
 	"Ficha.h"
@@ -416,7 +417,7 @@
 	"Jugador.h"
 	<fstream>
 
-1585703121 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublelinkedlistficha.h
+1585877745 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\doublelinkedlistficha.h
 	"Ficha.h"
 	"NodeFicha.h"
 	<iostream>

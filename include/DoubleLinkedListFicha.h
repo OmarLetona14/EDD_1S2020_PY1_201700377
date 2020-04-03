@@ -9,6 +9,7 @@ class DoubleLinkedListFicha
 {
     public:
         int size;
+        int getSize();
         void eliminarNodo(Ficha*);
         CreateFile* creator;
         DoubleLinkedListFicha();

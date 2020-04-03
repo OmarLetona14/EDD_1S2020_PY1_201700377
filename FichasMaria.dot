@@ -1,0 +1,16 @@
+digraph FichasMaria{ 
+node [ fontsize = 16 shape = record] 
+ " j3" [ label = " j" shape = record ]; 
+ " j3" ->  " ¤4"  
+ " ¤4" [ label = " ¤" shape = record ]; 
+ " ¤4" ->  " a5"  
+ " ¤4" ->  " j3" 
+ " a5" [ label = " a" shape = record ]; 
+ " a5" ->  " t6"  
+ " a5" ->  " ¤4" 
+ " t6" [ label = " t" shape = record ]; 
+ " t6" ->  " y7"  
+ " t6" ->  " a5" 
+ " y7" [ label = " y" shape = record ]; 
+ " y7" ->  " t6" 
+}
