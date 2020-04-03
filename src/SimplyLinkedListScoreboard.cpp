@@ -47,7 +47,9 @@ void SimplyLinkedListScoreboard::mostrarLista(){
 
 Score* SimplyLinkedListScoreboard::devolverMejorPuntaje(){
     if(primero!=NULL && ultimo!=NULL){
-        return ultimo->score;
+        if(ultimo->score!=nullptr && ultimo->score->getPuntaje()>0){
+           return ultimo->score;
+        }
     }else{
         return NULL;
     }

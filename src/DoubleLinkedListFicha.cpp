@@ -109,6 +109,7 @@ void DoubleLinkedListFicha::eliminarNodo(Ficha *ficha_eliminar){
                     ant->siguiente = aux->siguiente;
                     aux->siguiente->anterior = ant;
                 }
+                size--;
                 return;
             }
             ant = aux;

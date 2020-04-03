@@ -377,7 +377,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585888091 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585889808 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -399,7 +399,7 @@
 1585198362 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\score.h
 	<iostream>
 
-1585804362 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
+1585894418 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
 	"SimplyLinkedListScoreboard.h"
 	"NodeScore.h"
 	<fstream>
@@ -409,7 +409,7 @@
 	"Score.h"
 	"CreateFile.h"
 
-1585877745 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
+1585889364 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\doublelinkedlistficha.cpp
 	"DoubleLinkedListFicha.h"
 	"NodeFicha.h"
 	"Ficha.h"
@@ -455,7 +455,7 @@
 1585256217 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\nodescore.cpp
 	"NodeScore.h"
 
-1585805411 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\treeabb.cpp
+1585895161 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\treeabb.cpp
 	<ostream>
 	<fstream>
 	"TreeABB.h"

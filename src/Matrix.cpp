@@ -50,10 +50,17 @@ void Matrix::eliminarNodo(Ficha *&ficha, Matrix *&matrix){
             NodeMatrix *auxMatrix = auxHeader->column.first;
             while(auxMatrix!=nullptr){
                 if(ficha==auxMatrix->getFicha()){
-                    auxMatrix->getDown()->setUp(nullptr);
-                    auxMatrix->getUp()->setDown(nullptr);
-                    auxMatrix->getPrevious()->setNext(nullptr);
-                    auxMatrix->getNext()->setPrevious(nullptr);
+                    if(auxMatrix->getDown()!=nullptr){
+                       auxMatrix->getDown()->setUp(nullptr);
+                    }
+                    if(auxMatrix->getUp()!=nullptr){
+                        auxMatrix->getUp()->setDown(nullptr);
+                    }
+                    if(auxMatrix->getPrevious()!=nullptr){
+                        auxMatrix->getPrevious()->setNext(nullptr);
+                    }if(auxMatrix->getNext()!=nullptr){
+                        auxMatrix->getNext()->setPrevious(nullptr);
+                    }
                 }
                 auxMatrix = auxMatrix->getDown();
             }

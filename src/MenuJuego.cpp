@@ -22,6 +22,7 @@ MenuJuego::MenuJuego()
 }
 
 void MenuJuego::escogerJugador(){
+    cola_jugadores = new QueueJugador();
     do{
         if(randomQueue!=nullptr){
             NodeABB *nodo_vacio = nullptr;
@@ -29,6 +30,7 @@ void MenuJuego::escogerJugador(){
             Jugador *jugador_escogido = jugadores->searchPlayerByID(id_jugador, raiz, nodo_vacio)->getData();
             if(jugador_escogido!=nullptr){
                 if(!cola_jugadores->exists(jugador_escogido)){
+                    jugador_escogido->setPuntaje(0);
                     cout<< "Jugador escogido: "+ jugador_escogido->getNombreJugador() + "\n";
                     llenarFichasJugador(jugador_escogido);
                     cola_jugadores->push(jugador_escogido);
@@ -112,10 +114,12 @@ void MenuJuego::obtenerMejores(){
         }
         aux = aux->siguiente;
     }
+    system("pause");
     jugadores->getMejores()->createDOT("");
 }
 
 void MenuJuego::llenarFichasJugador(Jugador *&jugador){
+    jugador->setFichas(new DoubleLinkedListFicha());
     for(int i= 0; i<7;i++){
         jugador->getFichas()->insertar(colaFichas->devolverUltima());
         colaFichas->pop();
@@ -227,6 +231,7 @@ void MenuJuego::cambioTurno(Matrix *&matriz){
                     NodeFicha *auxFicha = fichas_introducidas->primero;
                     while(auxFicha!=nullptr){
                          jugador_turno->getFichas()->insertar(auxFicha->ficha);
+                         matriz->eliminarNodo(auxFicha->ficha, matriz);
                          auxFicha = auxFicha->siguiente;
                     }
                 }

@@ -67,14 +67,15 @@ void TreeABB::obtainBest(NodeABB *root){
     }
     else{
         if(root->getData()!=nullptr){
-            mejores->insertar(root->getData()->getPuntajes()->devolverMejorPuntaje());
+                if(root->getData()->getPuntajes()->devolverMejorPuntaje()!=nullptr){
+                    mejores->insertar(root->getData()->getPuntajes()->devolverMejorPuntaje());
+                }
+                mejores->mostrarLista();
         }
         obtainBest(root->left);
         obtainBest(root->right);
     }
 }
-
-
 
 void TreeABB::ReportPre(NodeABB* root){
     if(root == NULL){
