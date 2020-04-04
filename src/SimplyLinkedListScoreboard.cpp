@@ -50,9 +50,9 @@ Score* SimplyLinkedListScoreboard::devolverMejorPuntaje(){
         if(ultimo->score!=nullptr && ultimo->score->getPuntaje()>0){
            return ultimo->score;
         }
-    }else{
-        return NULL;
     }
+        return nullptr;
+
 }
 
 SimplyLinkedListScoreboard* SimplyLinkedListScoreboard::devolverPrimerosCinco(){
@@ -91,7 +91,7 @@ void SimplyLinkedListScoreboard::createDOT(std::string nombre_jugador){
     do{
     std::string cont = "";
             cont += " \" " + aux->score->getNombreJugador() + std::to_string(aux->score->getPuntaje()) +
-             "\" [ label = \" "+ std::to_string(aux->score->getPuntaje()) + "\" shape = record ]; \n";
+             "\" [ label = \" "+"Jugador: " + aux->score->getNombreJugador() + " Puntaje: "  +std::to_string(aux->score->getPuntaje()) + "\" shape = record ]; \n";
             if(aux->siguiente!=nullptr){
                 cont +=  " \" " + aux->score->getNombreJugador() + std::to_string(aux->score->getPuntaje()) + "\"" + " -> " +" \" " +
                 aux->siguiente->score->getNombreJugador() +

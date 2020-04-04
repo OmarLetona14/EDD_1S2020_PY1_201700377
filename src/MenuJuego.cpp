@@ -68,6 +68,7 @@ void MenuJuego::mostrarMenu(int dimension, DoubleCircularListDiccionario *diccio
                 cambioTurno(tablero);
             }else {
                 cout<<"Debe ingresar al menos dos jugadores para poder jugar! "<<endl;
+                system("pause");
             }
             break;
         case 2:
@@ -279,6 +280,8 @@ void MenuJuego::introducirLetra(Matrix *&matriz, int x, int y, Jugador *&jugador
         if(x<dime_tablero && y<dime_tablero){
           Ficha *nueva_ficha = jugador->getFichas()->getFicha(l);
             if(nueva_ficha!=nullptr){
+                nueva_ficha->setPosicionX(x);
+                nueva_ficha->setPosicionY(y);
                 isTriple(x,y,nueva_ficha);
                 isDouble(x,y,nueva_ficha);
                 matriz->insert(x,y,nueva_ficha);
@@ -390,6 +393,8 @@ DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
                         }
                     auxDiccionario = auxDiccionario->siguiente;
                 }while(auxDiccionario!=_diccionario->primero);
+            }else{
+                palabra += "|";
             }
             auxMatrix = auxMatrix->getDown();
         }
@@ -402,7 +407,7 @@ DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
         std::string palabra;
         while(auxMatrix!=nullptr){
             if(auxMatrix->getFicha()!=nullptr){
-                 palabra += auxMatrix->getFicha()->getLetra();
+                palabra += auxMatrix->getFicha()->getLetra();
                 NodeDiccionario *auxDiccionario = _diccionario->primero;
                 do{
                         if(_diccionario->subCadenaDiccionario(auxDiccionario->word, palabra)
@@ -411,6 +416,8 @@ DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
                         }
                     auxDiccionario = auxDiccionario->siguiente;
                 }while(auxDiccionario!=_diccionario->primero);
+            }else{
+                palabra += "|";
             }
             auxMatrix=auxMatrix->getNext();
         }

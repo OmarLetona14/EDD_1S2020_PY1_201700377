@@ -3,6 +3,7 @@
 #include <ctime>
 #include "ColaFicha.h"
 #include <random>
+using namespace std;
 GenerateRandom::GenerateRandom()
 {
 }

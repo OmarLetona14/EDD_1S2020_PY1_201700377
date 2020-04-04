@@ -45,7 +45,7 @@
 	<string>
 	"Ficha.h"
 
-1585804248 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+1585973943 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
 	"Matrix.h"
 	"Ficha.h"
 	<fstream>
@@ -326,13 +326,13 @@
 	"CreateFile.h"
 	<iostream>
 
-1585703856 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\ficha.h
+1585966775 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\ficha.h
 	<iostream>
 
 1585256306 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\nodeficha.h
 	"Ficha.h"
 
-1585703856 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\ficha.cpp
+1585966775 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\ficha.cpp
 	"Ficha.h"
 
 1585512670 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\jugador.cpp
@@ -370,14 +370,14 @@
 	"ColaFicha.h"
 	"Ficha.h"
 
-1585536002 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\generaterandom.cpp
+1585968684 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\generaterandom.cpp
 	"GenerateRandom.h"
 	<cstdlib>
 	<ctime>
 	"ColaFicha.h"
 	<random>
 
-1585889808 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1585968075 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
@@ -399,7 +399,7 @@
 1585198362 d:\users\omar\desktop\codeblocks - c++\[edd]project1\include\score.h
 	<iostream>
 
-1585894418 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
+1585968104 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\simplylinkedlistscoreboard.cpp
 	"SimplyLinkedListScoreboard.h"
 	"NodeScore.h"
 	<fstream>

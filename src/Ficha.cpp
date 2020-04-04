@@ -9,6 +9,14 @@ Ficha::Ficha(int noFicha, char letra)
     this->triple = false;
 }
 
+int Ficha::getPosicionX(){
+    return this->posicion_x;
+}
+
+int Ficha::getPosicionY(){
+    return this->posicion_y;
+}
+
 int Ficha::getNoFicha(){
     return this->noFicha;
 }
@@ -45,4 +53,11 @@ void Ficha::setDoble(bool v){
 
 void Ficha::setTriple(bool t){
     this->triple = t;
+}
+
+void Ficha::setPosicionX(int _x){
+    this->posicion_x = _x;
+}
+void Ficha::setPosicionY(int _y){
+    this->posicion_y = _y;
 }

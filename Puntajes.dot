@@ -1,4 +1,0 @@
-digraph Puntajes{ 
-node [ fontsize = 16 shape = record] 
- " Antonio13" [ label = " 13" shape = record ]; 
-}

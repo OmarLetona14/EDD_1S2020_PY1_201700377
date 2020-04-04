@@ -1,16 +1,22 @@
 digraph FichasJose{ 
 node [ fontsize = 16 shape = record] 
- " y1" [ label = " y" shape = record ]; 
- " y1" ->  " u3"  
- " u3" [ label = " u" shape = record ]; 
- " u3" ->  " q4"  
- " u3" ->  " y1" 
- " q4" [ label = " q" shape = record ]; 
- " q4" ->  " l5"  
- " q4" ->  " u3" 
- " l5" [ label = " l" shape = record ]; 
- " l5" ->  " n7"  
- " l5" ->  " q4" 
- " n7" [ label = " n" shape = record ]; 
- " n7" ->  " l5" 
+ " q1" [ label = " q" shape = record ]; 
+ " q1" ->  " r2"  
+ " r2" [ label = " r" shape = record ]; 
+ " r2" ->  " j3"  
+ " r2" ->  " q1" 
+ " j3" [ label = " j" shape = record ]; 
+ " j3" ->  " ¤4"  
+ " j3" ->  " r2" 
+ " ¤4" [ label = " ¤" shape = record ]; 
+ " ¤4" ->  " a5"  
+ " ¤4" ->  " j3" 
+ " a5" [ label = " a" shape = record ]; 
+ " a5" ->  " t6"  
+ " a5" ->  " ¤4" 
+ " t6" [ label = " t" shape = record ]; 
+ " t6" ->  " y7"  
+ " t6" ->  " a5" 
+ " y7" [ label = " y" shape = record ]; 
+ " y7" ->  " t6" 
 }

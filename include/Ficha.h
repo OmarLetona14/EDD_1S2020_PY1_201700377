@@ -9,13 +9,19 @@ class Ficha
     public:
         Ficha(int, char);
         int noFicha;
+        int posicion_x;
+        int posicion_y;
         int puntaje;
         char letra;
+        int getPosicionX();
+        int getPosicionY();
         int getNoFicha();
         int getPuntaje();
         char getLetra();
         bool getDoble();
         bool getTriple();
+        void setPosicionX(int);
+        void setPosicionY(int);
         void setNoFicha(int);
         void setPuntaje(int);
         void setLetra(char);

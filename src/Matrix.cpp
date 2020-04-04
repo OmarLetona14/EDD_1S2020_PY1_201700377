@@ -48,23 +48,40 @@ void Matrix::eliminarNodo(Ficha *&ficha, Matrix *&matrix){
     NodeHeader *auxHeader = matrix->header.first;
     while(auxHeader!=nullptr){
             NodeMatrix *auxMatrix = auxHeader->column.first;
-            while(auxMatrix!=nullptr){
                 if(ficha==auxMatrix->getFicha()){
-                    if(auxMatrix->getDown()!=nullptr){
-                       auxMatrix->getDown()->setUp(nullptr);
+                    if(auxMatrix->getDown()!=nullptr&& auxMatrix->getUp()!=nullptr){
+                       auxMatrix->getDown()->setUp(auxMatrix->getUp());
                     }
                     if(auxMatrix->getUp()!=nullptr){
-                        auxMatrix->getUp()->setDown(nullptr);
+                        auxMatrix->getUp()->setDown(auxMatrix->getDown());
                     }
-                    if(auxMatrix->getPrevious()!=nullptr){
-                        auxMatrix->getPrevious()->setNext(nullptr);
-                    }if(auxMatrix->getNext()!=nullptr){
-                        auxMatrix->getNext()->setPrevious(nullptr);
+                    if(auxMatrix->getPrevious()!=nullptr && auxMatrix->getNext()!=nullptr){
+                        auxMatrix->getPrevious()->setNext(auxMatrix->getNext());
+                    }if(auxMatrix->getNext()!=nullptr && auxMatrix->getPrevious()!=nullptr){
+                        auxMatrix->getNext()->setPrevious(auxMatrix->getPrevious());
                     }
-                }
                 auxMatrix = auxMatrix->getDown();
             }
         auxHeader=auxHeader->getNext();
+    }
+    NodeLateral *auxLateral = matrix->lateral.first;
+    while(auxLateral!=nullptr){
+        NodeMatrix *auxMatrix = auxLateral->row.first;
+                if(ficha==auxMatrix->getFicha()){
+                    if(auxMatrix->getDown()!=nullptr&& auxMatrix->getUp()!=nullptr){
+                       auxMatrix->getDown()->setUp(auxMatrix->getUp());
+                    }
+                    if(auxMatrix->getUp()!=nullptr){
+                        auxMatrix->getUp()->setDown(auxMatrix->getDown());
+                    }
+                    if(auxMatrix->getPrevious()!=nullptr && auxMatrix->getNext()!=nullptr){
+                        auxMatrix->getPrevious()->setNext(auxMatrix->getNext());
+                    }if(auxMatrix->getNext()!=nullptr && auxMatrix->getPrevious()!=nullptr){
+                        auxMatrix->getNext()->setPrevious(auxMatrix->getPrevious());
+                    }
+                auxMatrix = auxMatrix->getNext();
+        }
+        auxLateral = auxLateral->getDown();
     }
 }
 

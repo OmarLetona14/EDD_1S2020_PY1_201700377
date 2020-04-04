@@ -8,8 +8,8 @@ x0 -> x1
 y0[label = " 0" group = 1 ]; 
 mt -> y0
 {rank = same; mt; y0;}; 
-x0y0 [label = " s", style=filled, fillcolor=blue , group = 1 ]; 
-x1y0 [label = " f" group = 1 ]; 
+x0y0 [label = " q", style=filled, fillcolor=blue , group = 1 ]; 
+x1y0 [label = " y" group = 1 ]; 
 x0y0-> x1y0 
  x1y0-> x0y0 
  x0 -> x0y0
