@@ -374,7 +374,6 @@ void MenuJuego::menuReemplazo(Jugador*& jugador_turno){
 }
 
 
-
 DoubleCircularListDiccionario* MenuJuego::realizarRecorrido(Matrix* t_b){
     DoubleCircularListDiccionario *palabras_dicc = new DoubleCircularListDiccionario();
     //Recorrido de las columnas

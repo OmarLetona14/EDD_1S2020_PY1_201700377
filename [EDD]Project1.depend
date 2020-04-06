@@ -45,7 +45,7 @@
 	<string>
 	"Ficha.h"
 
-1585973943 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
+1585974685 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\matrix.cpp
 	"Matrix.h"
 	"Ficha.h"
 	<fstream>
@@ -377,7 +377,7 @@
 	"ColaFicha.h"
 	<random>
 
-1585968075 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
+1586061232 source:d:\users\omar\desktop\codeblocks - c++\[edd]project1\src\menujuego.cpp
 	"MenuJuego.h"
 	<iostream>
 	"GenerateRandom.h"
